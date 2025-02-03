@@ -19,9 +19,23 @@
 }
 
 header {
-	background-color: var(--color-background);
-	padding-block: calc(5 * var(--base-size));
+	font-family: var(--font-heading);
+	font-weight: 400;
+	color: var(--color-primary);
+	padding: calc(10 * var(--base-size)) calc(2 * var(--base-size));
+	text-align: center;
 }
+
+h1 { 
+	font-size: calc(1.25 * var(--base-size));
+}
+
+h2 {
+	font-style: italic;
+	font-size: calc(1.25 * var(--base-size));
+	padding-top: calc(1.25 * var(--base-size));
+}
+
 
 #main-content {
 	block-size: 75vh;
@@ -30,22 +44,6 @@ header {
 }
 
 footer {
-	background-color: var(--color-secondary);
 	padding-top: var(--base-size);
 	padding-bottom: calc(5 * var(--base-size));
-}
-
-.gutters {
-	padding-inline: var(--gutter-size);
-}
-
-img {
-
-}
-
-.hero-image {
-	width: 100%;
-	height: 33vh;
-	object-fit: cover;
-	overflow: hidden;
 }
