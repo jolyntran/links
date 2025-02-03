@@ -2,11 +2,13 @@
 	--base-size: 16px;
 	--gutter-size: var(--base-size);
 
-	--color-primary: black;
-	--color-secondary: gold;
-	--color-background: tomato;
+	--color-primary: white;
+	--color-secondary: black;
+	background: linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(72,105,163,1) 60%, rgba(137,179,217,1) 100%);;
 
 	--font-size: (var(--base-size));
+	--font-heading: "Jacquard 24";
+	--font-
 }
 
 @media (min-width: 600px) {
