@@ -4,11 +4,14 @@
 
 	--color-primary: white;
 	--color-secondary: black;
+	--color-accent: #758CBE;
+	--color-green: #41f525;
+
 	background: linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(72,105,163,1) 60%, rgba(137,179,217,1) 100%);;
 
 	--font-size: (var(--base-size));
 	--font-heading: "Jacquard 24";
-	--font-
+	--font-body: "Inter";
 }
 
 @media (min-width: 600px) {
@@ -19,6 +22,7 @@
 }
 
 header {
+	font-size: calc(1.25 * var(--base-size));
 	font-family: var(--font-heading);
 	font-weight: 400;
 	color: var(--color-primary);
@@ -26,22 +30,148 @@ header {
 	text-align: center;
 }
 
-h1 { 
-	font-size: calc(1.25 * var(--base-size));
-}
-
 h2 {
 	font-style: italic;
-	font-size: calc(1.25 * var(--base-size));
 	padding-top: calc(1.25 * var(--base-size));
 }
 
+#buttons {
+	display: flex;
+	justify-content: center;
+	gap: calc(1.5 * var(--base-size));
+	margin-top: calc(1.5 * var(--base-size));
+}
+
+.buttons {
+	padding: calc(.5 * var(--base-size)) calc(1 * var(--base-size));
+}
+
+.buttons:first-child {
+	color: var(--color-accent);
+	border-radius: calc(2 * var(--base-size));
+	background-color: var(--color-primary);
+}
+
+.buttons:nth-child(2) {
+	color: var(--color-primary);
+	border-radius: calc(2 * var(--base-size));
+	border: calc(.1 * var(--base-size)) var(--color-primary) solid;
+}
 
 #main-content {
 	block-size: 75vh;
 	padding-top: var(--base-size);
 	padding-bottom: calc(2 * var(--base-size));
 }
+
+/* Color Variables */
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sonar {
+    width: 80%;
+    padding-top: 80%;
+    height: 0;
+    position: relative;
+}
+
+.sonar__container {
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(65, 245, 37, 0.6);
+    border-radius: 50%;
+}
+
+.distance__circle {
+    background: transparent;
+    box-shadow: 
+        inset 1px 0 0 0 rgba(65, 245, 37, 0.4),
+        inset -1px 0 0 0 rgba(65, 245, 37, 0.4),
+        inset 0 1px 0 0 rgba(65, 245, 37, 0.4),
+        inset 0 -1px 0 0 rgba(65, 245, 37, 0.4);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.distance__circle:nth-child(1) { width: 20%; height: 20%; }
+.distance__circle:nth-child(2) { width: 40%; height: 40%; }
+.distance__circle:nth-child(3) { width: 60%; height: 60%; }
+.distance__circle:nth-child(4) { width: 80%; height: 80%; }
+.distance__circle:nth-child(5) { width: 100%; height: 100%; }
+
+.degree {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.degree__line {
+    height: 50%;
+    width: 1px;
+    background: rgba(51, 229, 23, 0.4);
+    left: 50%;
+    bottom: 50%;
+    position: absolute;
+    transform-origin: bottom center;
+}
+
+.degree__line:nth-child(1) { transform: translate(-50%, 0) rotateZ(0deg); }
+.degree__line:nth-child(2) { transform: translate(-50%, 0) rotateZ(30deg); }
+.degree__line:nth-child(3) { transform: translate(-50%, 0) rotateZ(60deg); }
+.degree__line:nth-child(4) { transform: translate(-50%, 0) rotateZ(90deg); }
+.degree__line:nth-child(5) { transform: translate(-50%, 0) rotateZ(120deg); }
+.degree__line:nth-child(6) { transform: translate(-50%, 0) rotateZ(150deg); }
+.degree__line:nth-child(7) { transform: translate(-50%, 0) rotateZ(180deg); }
+.degree__line:nth-child(8) { transform: translate(-50%, 0) rotateZ(210deg); }
+.degree__line:nth-child(9) { transform: translate(-50%, 0) rotateZ(240deg); }
+.degree__line:nth-child(10) { transform: translate(-50%, 0) rotateZ(270deg); }
+.degree__line:nth-child(11) { transform: translate(-50%, 0) rotateZ(300deg); }
+.degree__line:nth-child(12) { transform: translate(-50%, 0) rotateZ(330deg); }
+
+.rotary {
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(rgba(4, 4, 27, 0.323) 25%,rgba(0, 7, 22, 0) 90%, var(--color-green));
+    overflow: hidden;
+    border-radius: 50%;
+    animation: rotating 5.4s linear infinite;
+    transform-origin: center center;
+    position: absolute;
+}
+
+@keyframes rotating {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.ship-1, .ship-2 {
+    width: 2.5%;
+    height: 2.5%;
+    background: var(--color-green);
+    border-radius: 50%;
+    box-shadow: 0px 0px 6px 2px var(--color-green);
+    position: absolute;
+}
+
+.ship-1 { top: 21%; left: 45%; }
+.ship-2 { top: 14%; left: 78%; }
+
 
 footer {
 	padding-top: var(--base-size);
