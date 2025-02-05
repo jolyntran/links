@@ -204,7 +204,7 @@ p {
     to { transform: rotate(360deg); }
 }
 
-.ship-1, .ship-2 {
+.image .text, .link, .pdf {
     width: 2.5%;
     height: 2.5%;
     background: var(--color-green);
@@ -213,8 +213,10 @@ p {
     position: absolute;
 }
 
-.ship-1 { top: 21%; left: 45%; }
-.ship-2 { top: 14%; left: 78%; }
+.image { top: 21%; left: 45%; }
+.text { top: 14%; left: 78%; }
+.link { top: 14%; left: 78%; }
+.pdf { top: 14%; left: 78%; }
 
 /* 
 footer {
