@@ -6,8 +6,8 @@
 	--color-secondary: black;
 	--color-accent: #758CBE;
 	--color-green: #41f525;
-
-	background: linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(72,105,163,1) 60%, rgba(137,179,217,1) 100%);;
+    background: rgb(2,0,36);
+    background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(0,49,63,1) 35%, rgba(76,230,189,1) 100%);
 
 	--font-size: (var(--base-size));
 	--font-heading: "Jacquard 24";
@@ -64,14 +64,13 @@ h2 {
 	padding-bottom: calc(2 * var(--base-size));
 }
 
-/* Color Variables */
+/* SONAR GRAPHIC WAS ASSISTED VIA https://codepen.io/nikolab/pen/poNEgKW */
 .app {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .sonar {
@@ -82,11 +81,11 @@ h2 {
 }
 
 .sonar__container {
-    width: calc(100% - 60px);
-    height: calc(100% - 60px);
+    width: 700%;
+    height: 700%;
     position: absolute;
     left: 50%;
-    top: 50%;
+    /* top: 50%; */
     transform: translate(-50%, -50%);
     border: 1px solid rgba(65, 245, 37, 0.6);
     border-radius: 50%;
@@ -106,11 +105,16 @@ h2 {
     transform: translate(-50%, -50%);
 }
 
-.distance__circle:nth-child(1) { width: 20%; height: 20%; }
-.distance__circle:nth-child(2) { width: 40%; height: 40%; }
-.distance__circle:nth-child(3) { width: 60%; height: 60%; }
-.distance__circle:nth-child(4) { width: 80%; height: 80%; }
-.distance__circle:nth-child(5) { width: 100%; height: 100%; }
+.distance__circle:nth-child(1) { width: 10%; height: 10%; }
+.distance__circle:nth-child(2) { width: 20%; height: 20%; }
+.distance__circle:nth-child(3) { width: 30%; height: 30%; }
+.distance__circle:nth-child(4) { width: 40%; height: 40%; }
+.distance__circle:nth-child(5) { width: 50%; height: 50%; }
+.distance__circle:nth-child(6) { width: 60%; height: 60%; }
+.distance__circle:nth-child(7) { width: 70%; height: 70%; }
+.distance__circle:nth-child(8) { width: 80%; height: 80%; }
+.distance__circle:nth-child(9) { width: 90%; height: 90%; }
+.distance__circle:nth-child(10) { width: 100%; height: 100%; }
 
 .degree {
     position: absolute;
@@ -147,7 +151,7 @@ h2 {
 .rotary {
     width: 100%;
     height: 100%;
-    background: conic-gradient(rgba(4, 4, 27, 0.323) 25%,rgba(0, 7, 22, 0) 90%, var(--color-green));
+    background: conic-gradient(rgba(0, 7, 22, 0) 90%, var(--color-green));
     overflow: hidden;
     border-radius: 50%;
     animation: rotating 5.4s linear infinite;
@@ -172,8 +176,8 @@ h2 {
 .ship-1 { top: 21%; left: 45%; }
 .ship-2 { top: 14%; left: 78%; }
 
-
+/* 
 footer {
 	padding-top: var(--base-size);
 	padding-bottom: calc(5 * var(--base-size));
-}
+} */
