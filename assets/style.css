@@ -4,10 +4,15 @@
 
 	--color-primary: white;
 	--color-secondary: black;
-	--color-accent: #758CBE;
-	--color-green: #2db618;
+	--color-accent: #28b4a2;
+	--color-green: #18b68c;
+    
     background: rgb(2,0,36);
-    background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(0,49,63,1) 35%, rgba(76,230,189,1) 100%);
+    background: linear-gradient(300deg, rgba(2,0,36,1) 19%, rgba(12,79,98,1) 54%, rgba(27,132,132,1) 71%, rgba(40,180,162,1) 88%, rgba(76,230,189,1) 100%);
+        /* ASK FOR HELP ON HAVING A GRID OVERLAY ON TOP OF A GRADIENT     */
+    /* linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 100% 100%, 20px 20px, 20px 20px; */
 
 	--font-size: (var(--base-size));
 	--font-heading: "Jacquard 24";
