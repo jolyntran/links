@@ -204,19 +204,18 @@ p {
     to { transform: rotate(360deg); }
 }
 
-.image .text, .link, .pdf {
-    width: 2.5%;
-    height: 2.5%;
-    background: var(--color-green);
-    border-radius: 50%;
-    box-shadow: 0px 0px 6px 2px var(--color-green);
-    position: absolute;
+.image {
+    display: flex;
+    justify-content: center; 
+    margin-top: calc(1.5 * var(--base-size));
 }
 
-.image { top: 1%; left: 1%; }
-.text { top: 14%; left: 78%; }
-.link { top: 14%; left: 78%; }
-.pdf { top: 14%; left: 78%; }
+.image img {
+    width: calc(6 * var(--base-size));
+    height: calc(6 * var(--base-size));
+    clip-path: circle();
+    object-fit: cover;
+}
 
 /* 
 footer {
