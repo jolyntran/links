@@ -56,7 +56,7 @@ p {
 }
 
 .buttons:first-child {
-	color: var(--color-accent);
+	color: var(--color-green);
 	border-radius: calc(2 * var(--base-size));
 	background-color: var(--color-primary);
 }
