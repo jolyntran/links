@@ -205,6 +205,7 @@ p {
 }
 
 .image {
+    position: absolute;
     display: flex;
     justify-content: center; 
     margin-top: calc(1.5 * var(--base-size));
@@ -216,6 +217,39 @@ p {
     clip-path: circle();
     object-fit: cover;
 }
+
+.image:nth-child(1) {
+    left: 55%;
+    top: 2%;
+}
+
+.image:nth-child(2) {
+    left: 40%;
+    top: 10%;
+}
+
+.image:nth-child(3) {
+    left: 49%;
+    top: 20%;
+}
+
+.image:nth-child(4) {
+    left: 53%;
+    top: 30%;
+}
+
+/* .text,
+.link,
+.pdf {
+    border: 2px solid red;
+}
+
+.text p,
+.pdf p,
+.link a {
+    color: var(--color-primary);
+    font-size: calc(2 * var(--base-size));
+} */
 
 /* 
 footer {
