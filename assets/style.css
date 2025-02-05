@@ -213,7 +213,7 @@ p {
     position: absolute;
 }
 
-.image { top: 21%; left: 45%; }
+.image { top: 1%; left: 1%; }
 .text { top: 14%; left: 78%; }
 .link { top: 14%; left: 78%; }
 .pdf { top: 14%; left: 78%; }
