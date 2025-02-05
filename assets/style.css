@@ -66,11 +66,13 @@ h2 {
 
 /* SONAR GRAPHIC WAS ASSISTED VIA https://codepen.io/nikolab/pen/poNEgKW */
 .app {
+    padding-top: calc(85 * var(--base-size));
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     position: relative;
-    /* overflow: hidden; */
+    overflow: hidden;
+    max-height: 50vh;
 }
 
 .sonar {
