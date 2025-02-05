@@ -5,7 +5,7 @@
 	--color-primary: white;
 	--color-secondary: black;
 	--color-accent: #758CBE;
-	--color-green: #41f525;
+	--color-green: #2db618;
     background: rgb(2,0,36);
     background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(0,49,63,1) 35%, rgba(76,230,189,1) 100%);
 
@@ -33,6 +33,15 @@ header {
 h2 {
 	font-style: italic;
 	padding-top: calc(1.25 * var(--base-size));
+}
+
+p {
+    font-size: calc(1.25 * var(--base-size));
+	font-family: var(--font-heading);
+	font-weight: 400;
+    color: var(--color-primary);
+    text-align: center;
+    position: absolute;
 }
 
 #buttons {
@@ -89,17 +98,17 @@ h2 {
     left: 50%;
     /* top: 50%; */
     transform: translate(-50%, -50%);
-    border: 1px solid rgba(65, 245, 37, 0.6);
+    border: 1px solid var(--color-green);
     border-radius: 50%;
 }
 
 .distance__circle {
     background: transparent;
     box-shadow: 
-        inset 1px 0 0 0 rgba(65, 245, 37, 0.4),
-        inset -1px 0 0 0 rgba(65, 245, 37, 0.4),
-        inset 0 1px 0 0 rgba(65, 245, 37, 0.4),
-        inset 0 -1px 0 0 rgba(65, 245, 37, 0.4);
+        inset 1px 0 0 0 var(--color-green),
+        inset -1px 0 0 0 var(--color-green),
+        inset 0 1px 0 0 var(--color-green),
+        inset 0 -1px 0 0 var(--color-green);
     border-radius: 50%;
     position: absolute;
     left: 50%;
@@ -118,6 +127,35 @@ h2 {
 .distance__circle:nth-child(9) { width: 90%; height: 90%; }
 .distance__circle:nth-child(10) { width: 100%; height: 100%; }
 
+
+/* I TRIED TO USE DOM SEMANTICS IN HTML TO INPUT THE TEXT, BUT IT WAS BEING WEIRD, FOUND THIS ALT ON https://developer.mozilla.org/en-US/docs/Web/CSS/content */
+.distance__circle:nth-child(2)::before {
+    content: "audio";
+}
+.distance__circle:nth-child(4)::before {
+    content: "pdf";
+}
+.distance__circle:nth-child(6)::before {
+    content: "link";
+}
+.distance__circle:nth-child(8)::before {
+    content: "text";
+}
+.distance__circle:nth-child(10)::before {
+    content: "image";
+}
+
+.distance__circle::before {
+    position: absolute;
+    top: -25;
+    left: 50%;
+    font-family: var(--font-heading);
+	font-weight: 400;
+    transform: translateX(-50%);
+    font-size: calc(1.5 * var(--base-size));
+    color: var(--color-primary);
+}
+
 .degree {
     position: absolute;
     width: 100%;
@@ -130,7 +168,7 @@ h2 {
 .degree__line {
     height: 50%;
     width: 1px;
-    background: rgba(51, 229, 23, 0.4);
+    background: var(--color-green);
     left: 50%;
     bottom: 50%;
     position: absolute;
