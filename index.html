@@ -15,12 +15,21 @@
 			<h1>At the ocean’s deepest trench, where light has never touched, something stirs...</h1>
 			<h2>something that has been waiting.</h2>
 			<section id="buttons">
-				<a href ="#explore" class="buttons">Explore</a>
-				<a href id ="channel-link" class="buttons">Are.na</a>
+				<!-- <a href="#explore" class="buttons">Explore</a> -->
+				<p class="buttons"><a id="channel-link">Are.na ↗</a></p>			
 			</section>
 		</header>
-		<!-- SONAR OUTLINE WAS TAKEN FROM https://codepen.io/nikolab/pen/poNEgKW BUT ADJUSTED FOR THE SCOPE OF THE PROJECT-->
-		<section id="explore" class="app">
+		<Header>
+			<ul id="channel-description"></ul>
+			<p><span id="channel-count"></span> blocks</p>
+			<p><span id="channel-link"></span></p>
+		</Header>
+		<section class="parent-container">
+			<div class="block-container" id="channel-blocks">
+			</div>	
+		</section>
+		<!-- SONAR OUTLINE WAS TAKEN FROM https://codepen.io/nikolab/pen/poNEgKW BUT ADJUSTED FOR THE SCOPE OF THE PROJECT-->	
+		<!-- <section id="explore" class="app">
 			<section class="sonar">
 				<section class="sonar__container">
 					<section class="circle">
@@ -70,7 +79,7 @@
 					</section>
 				</section>
 			</section>
-		</section>
+		</section> -->
 		
 		<!-- <footer>
 			<p>Jolyn Tran &copy; 2025</p>
