@@ -9,10 +9,7 @@
     
     background: rgb(2,0,36);
     background: linear-gradient(300deg, rgba(2,0,36,1) 19%, rgba(12,79,98,1) 54%, rgba(27,132,132,1) 71%, rgba(40,180,162,1) 88%, rgba(76,230,189,1) 100%);
-        /* ASK FOR HELP ON HAVING A GRID OVERLAY ON TOP OF A GRADIENT     */
-    /* linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-    background-size: 100% 100%, 20px 20px, 20px 20px; */
+
 
 	--font-size: (var(--base-size));
 	--font-heading: "Jacquard 24";
@@ -67,11 +64,11 @@ p {
 	background-color: var(--color-primary);
 }
 
-.buttons:nth-child(2) {
+/* .buttons:nth-child(2) {
 	color: var(--color-primary);
 	border-radius: calc(2 * var(--base-size));
 	border: calc(.1 * var(--base-size)) var(--color-primary) solid;
-}
+} */
 
 /* MEDIA BLOCKS */
 #channel-blocks {
@@ -80,27 +77,75 @@ p {
     flex-wrap: wrap;
     gap: calc(2 * var(--base-size)); 
     padding: calc(2 * var(--base-size));
+    justify-content: center; /* Ensures circles are evenly spaced */
 }
 
 #channel-blocks li {
-    width: calc(5 * var(--base-size)); 
+    width: calc(5 * var(--base-size)); /* Adjusts size of circles */
     height: calc(5 * var(--base-size));
-    border-radius: 50%; 
+    border-radius: 50%;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: calc(0.5 * var(--base-size));
+    word-wrap: break-word;
+    border: 2px solid white;
+    color: var(--color-primary);
     background-color: var(--color-accent);
+    text-decoration: none;
 }
 
 #channel-blocks li p {
+    font-size: calc(0.8 * var(--base-size));
+    line-height: 1.2;
+    padding: calc(0.5 * var(--base-size));
+    text-align: center;
+    margin: 0;
+    color: white;
+}
+
+#channel-blocks li p:first-child {
     display: none;
+}
+
+#channel-blocks li.text-block {
+    background-color: var(--color-green); /* Different color for text blocks */
+    color: white;
+}
+
+#channel-blocks li a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: calc(0.8 * var(--base-size));
+    overflow-wrap: break-word;
 }
 
 #channel-blocks li img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    border-radius: 50%; 
-	object-position: center;
-	overflow: clip;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#channel-blocks li.attachment-block {
+    background-color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: calc(0.8 * var(--base-size));
+    color: white;
+}
+
+#channel-blocks li iframe,
+#channel-blocks li video,
+#channel-blocks li audio {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 
 /* SONAR GRAPHIC WAS ASSISTED VIA https://codepen.io/nikolab/pen/poNEgKW */
