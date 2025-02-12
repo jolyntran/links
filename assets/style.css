@@ -34,9 +34,22 @@ h2 {
     padding-top: calc(1.25 * var(--base-size));
 }
 
+p {
+    font-size: calc(1 * var(--base-size));
+    font-family: var(--font-body);
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+}
+
+#pings {
+    font-family: var(--font-heading);
+    font-size: calc(2 * var(--base-size));
+    margin: calc(2 * var(--base-size));
+}
 
 /* BUTTON STYLING */
-#buttons, #filter-buttons {
+#buttons, #filter-buttons{
     display: flex;
     justify-content: center;
     gap: calc(1 * var(--base-size));
@@ -52,6 +65,7 @@ h2 {
 }
 
 .buttons {
+    font-family: var(--font-heading);
     padding: calc(0.5 * var(--base-size)) calc(1 * var(--base-size));
     color: var(--color-accent);
     border-radius: calc(2 * var(--base-size));
@@ -102,7 +116,7 @@ h2 {
     border-radius: calc(5 * var(--base-size));
 }
 
-/* MP4S */
+/* MP4s */
 #channel-blocks li video {
     width: 100%;
     height: 100%;
@@ -117,10 +131,9 @@ h2 {
     border-radius: 50%;
 }
 
-/* FOR PDFS */
+/* PDFS */
 #channel-blocks li a {
-    color: var(--color-accent);
-    font-weight: bold;
+    color: var(--color-white);
     text-decoration: none;
     text-align: center;
     display: flex;
