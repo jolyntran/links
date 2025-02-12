@@ -83,3 +83,4 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
         renderUser(data.user, channelUsers);
     })
     .catch((error) => console.error('Error fetching Are.na data:', error));
+

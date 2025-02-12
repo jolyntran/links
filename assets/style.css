@@ -62,16 +62,17 @@ h2 {
 #channel-blocks {
     display: flex;
     flex-wrap: wrap;
+    position: absolute;
     justify-content: center;
     gap: calc(2 * var(--base-size));
     padding: calc(2 * var(--base-size));
-    list-style: none;
+    z-index: 10;
 }
 
 #channel-blocks li {
     position: relative;
-    width: calc(5 * var(--base-size));
-    height: calc(5 * var(--base-size));
+    width: calc(6 * var(--base-size));
+    height: calc(6 * var(--base-size));
     aspect-ratio: 1/1; 
     border-radius: 50%; 
     overflow: hidden;
@@ -140,8 +141,8 @@ h2 {
     justify-content: center;
     align-items: flex-end;
     position: relative;
-    overflow: hidden;
-    max-height: 50vh;
+    /* overflow: hidden; */
+    max-height: 100vh;
 }
 
 .sonar {
@@ -152,8 +153,8 @@ h2 {
 }
 
 .sonar__container {
-    width: 700%;
-    height: 700%;
+    width: 800%;
+    height: 800%;
     position: absolute;
     left: 50%;
     top: 50%;
