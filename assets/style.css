@@ -59,6 +59,10 @@ h2 {
 }
 
 /* MEDIA STYLING */
+#channel-description {
+    display: none;
+}
+
 #channel-blocks {
     display: flex;
     flex-wrap: wrap;

@@ -84,3 +84,24 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
     })
     .catch((error) => console.error('Error fetching Are.na data:', error));
 
+
+
+	
+function createBlock() {
+    var container = document.getElementById("channel-blocks");
+
+    var newBlock = document.createElement("li");
+    newBlock.setAttribute("class", "object block"); // Assigning object and block class
+    container.appendChild(newBlock); // Add to #channel-blocks
+
+    var containerWidth = container.offsetWidth;
+    var containerHeight = container.offsetHeight;
+
+    var randomX = Math.floor(Math.random() * (containerWidth - 100)); // Adjust size
+    var randomY = Math.floor(Math.random() * (containerHeight - 100));
+
+    // Apply position styles
+    newBlock.style.position = "absolute";
+    newBlock.style.top = `${randomY}px`;
+    newBlock.style.left = `${randomX}px`;
+}
