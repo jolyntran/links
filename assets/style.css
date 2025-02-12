@@ -68,7 +68,7 @@ h2 {
     flex-wrap: wrap;
     position: absolute;
     justify-content: center;
-    gap: calc(2 * var(--base-size));
+    gap: calc(3 * var(--base-size));
     padding: calc(2 * var(--base-size));
     z-index: 10;
 }
@@ -77,7 +77,6 @@ h2 {
     position: relative;
     width: calc(5.5 * var(--base-size));
     height: calc(5.5 * var(--base-size));
-    aspect-ratio: 1/1; 
     border-radius: 50%; 
     overflow: hidden;
     display: flex;
