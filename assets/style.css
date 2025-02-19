@@ -86,11 +86,16 @@ p {
     font-family: var(--font-body);
     font-style: italic;
     font-size: calc(1 * var(--base-size));
-    display: flex;
-    position: sticky;
-    top: 0;
+	display: flex;
+	left: 0%;
+	right: 0%;
+	justify-content: space-evenly;
+	padding:20px;
+	padding-left: var(--flex-container-padding-left);
+	flex-direction: row;
+	position: sticky;
+	top: 0;
     /* flex-wrap: wrap; */
-    justify-content: space-evenly;
     /* gap: calc(0.5 * var(--base-size)); */
 }
 
