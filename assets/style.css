@@ -43,25 +43,39 @@ p {
 }
 
 #pings {
-    font-family: var(--font-heading);
-    font-size: calc(2 * var(--base-size));
-    margin: calc(2 * var(--base-size));
+    display: none;
 }
 
 /* BUTTON STYLING */
 #buttons, #filter-buttons{
     display: flex;
     justify-content: center;
-    gap: calc(1 * var(--base-size));
+    gap: calc(0.75 * var(--base-size));
     margin-top: calc(1.5 * var(--base-size));
 }
 
 #filter-buttons {
     font-family: var(--font-heading);
     font-size: calc(1.25 * var(--base-size));
+    padding: calc(0.5 * var(--base-size)) calc(1 * var(--base-size));
+    flex-wrap: wrap;
+}
+
+.filter-button {
     padding: calc(0.5 * var(--base-size)) calc(1.5 * var(--base-size));
+    border-radius: calc(2 * var(--base-size));
+    background: var(--color-primary);
     color: var(--color-accent);
-    background-color: var(--color-primary); 
+    transition: all 0.3s ease-in-out;
+}
+
+.filter-button:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+}
+
+.filter-button.active {
+    background: var(--color-accent);
 }
 
 .buttons {
@@ -73,6 +87,11 @@ p {
 }
 
 /* MEDIA STYLING */
+#channel-title {
+    font-size: calc(2 * var(--base-size));
+    padding-bottom: calc(1.25 * var(--base-size));
+}
+
 #channel-description {
     display: none;
 }

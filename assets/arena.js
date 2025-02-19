@@ -17,57 +17,45 @@ let placeChannelInfo = (data) => {
 
 let renderBlock = (block) => {
     let channelBlocks = document.querySelector('#channel-blocks');
-
     let blockItem = document.createElement('li');
 
+    // Determine category class for filtering
     if (block.class === 'Link') {
+        blockItem.classList.add("link");
         blockItem.innerHTML = `
             <a href="${block.source.url}" target="_blank">
                 <img src="${block.image?.original?.url || 'default-thumbnail.jpg'}" alt="Link Preview">
             </a>
         `;
-    }
-
+    } 
     else if (block.class === 'Image') {
+        blockItem.classList.add("image");
         blockItem.innerHTML = `
             <img src="${block.image?.original?.url}" alt="Image Block">
         `;
-    }
-
+    } 
     else if (block.class === 'Text') {
-        blockItem.innerHTML = `
-            <p>${block.content}</p>
-        `;
-    }
-
+        blockItem.classList.add("quotes");
+        blockItem.innerHTML = `<p>${block.title}</p>`;
+    } 
     else if (block.class === 'Attachment') {
         let attachment = block.attachment.content_type;
-
         if (attachment.includes('video')) {
+            blockItem.classList.add("video");
             blockItem.innerHTML = `<video controls src="${block.attachment.url}"></video>`;
         } else if (attachment.includes('audio')) {
+            blockItem.classList.add("audio");
             blockItem.innerHTML = `<audio controls src="${block.attachment.url}"></audio>`;
         } else if (attachment.includes('pdf')) {
-            blockItem.innerHTML = `<a href="${block.attachment.url}" target="_blank">View PDF</a>`;
+            blockItem.innerHTML = `<p>${block.title} ↗</p>`;
         }
-    }
-
+    } 
     else if (block.class === 'Media' && block.embed?.html) {
+        blockItem.classList.add("video");
         blockItem.innerHTML = block.embed.html;
     }
 
     channelBlocks.appendChild(blockItem);
-};
-
-let renderUser = (user, container) => {
-    let userAddress = `
-        <address>
-            <img src="${user.avatar_image.display}">
-            <h3>${user.first_name}</h3>
-            <p><a href="https://are.na/${user.slug}">Are.na profile ↗</a></p>
-        </address>
-    `;
-    container.insertAdjacentHTML('beforeend', userAddress);
 };
 
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
@@ -85,23 +73,25 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
     .catch((error) => console.error('Error fetching Are.na data:', error));
 
 
+// FILTERING SYSTEM
+document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll(".filter-button");
+    const channelBlocks = document.getElementById("channel-blocks");
 
-	
-function createBlock() {
-    var container = document.getElementById("channel-blocks");
+    if (!channelBlocks) return;
 
-    var newBlock = document.createElement("li");
-    newBlock.setAttribute("class", "object block"); // Assigning object and block class
-    container.appendChild(newBlock); // Add to #channel-blocks
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const filterValue = button.getAttribute("data-filter");
+            const filterItems = channelBlocks.querySelectorAll("li"); 
 
-    var containerWidth = container.offsetWidth;
-    var containerHeight = container.offsetHeight;
-
-    var randomX = Math.floor(Math.random() * (containerWidth - 100)); // Adjust size
-    var randomY = Math.floor(Math.random() * (containerHeight - 100));
-
-    // Apply position styles
-    newBlock.style.position = "absolute";
-    newBlock.style.top = `${randomY}px`;
-    newBlock.style.left = `${randomX}px`;
-}
+            filterItems.forEach(item => {
+                if (filterValue === "all" || item.classList.contains(filterValue)) {
+                    item.style.display = "block"; 
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    });
+});
