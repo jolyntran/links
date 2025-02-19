@@ -22,7 +22,7 @@ let renderBlock = (block) => {
     // Determine category class for filtering
     if (block.class === 'Link') {
         blockItem.classList.add("link");
-        blockItem.innerHTML = `<p>${block.title} ↗</p>`;
+        blockItem.innerHTML = `<h4>Article</h4><p>${block.title} ↗</p>`;
     } 
     else if (block.class === 'Image') {
         blockItem.classList.add("image");
@@ -32,7 +32,7 @@ let renderBlock = (block) => {
     } 
     else if (block.class === 'Text') {
         blockItem.classList.add("quotes");
-        blockItem.innerHTML = `<p>${block.title}</p>`;
+        blockItem.innerHTML = `<h4>Quote</h4><p>${block.title}</p>`;
     } 
     else if (block.class === 'Attachment') {
         let attachment = block.attachment.content_type;
@@ -43,7 +43,7 @@ let renderBlock = (block) => {
             blockItem.classList.add("audio");
             blockItem.innerHTML = `<audio controls src="${block.attachment.url}"></audio>`;
         } else if (attachment.includes('pdf')) {
-            blockItem.innerHTML = `<p>${block.title} ↗</p>`;
+            blockItem.innerHTML = `<h4>PDF</h4><p>${block.title} ↗</p>`;
         }
     } 
     else if (block.class === 'Media' && block.embed?.html) {

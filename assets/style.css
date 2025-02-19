@@ -8,7 +8,7 @@
     --color-white: white;
     --font-size: var(--base-size);
     --font-heading: "Jacquard 24", sans-serif;
-    --font-body: "Inter", sans-serif;
+    --font-body: "Playfair Display", sans-serif;
     background-image: url("background.svg");
     background-attachment: fixed;
 }
@@ -21,7 +21,6 @@
 }
 
 header {
-    font-size: calc(1.25 * var(--base-size));
     font-family: var(--font-heading);
     font-weight: 400;
     color: var(--color-primary);
@@ -30,12 +29,19 @@ header {
 }
 
 h2 {
-    font-style: italic;
-    padding-top: calc(1.25 * var(--base-size));
+    font-size: calc(1.25 * var(--base-size));
+    font-family: var(--font-heading);
+    padding-bottom: calc(1.5 * var(--base-size));
 }
 
-h3 {
+em {
+    font-style: italic;
+}
+
+h4 {
+    font-family: var(--font-body);
     font-size: calc(1 * var(--base-size));
+    font-style: italic;
 }
 
 p {
