@@ -34,10 +34,14 @@ h2 {
     padding-top: calc(1.25 * var(--base-size));
 }
 
-p {
+h3 {
     font-size: calc(1 * var(--base-size));
-    font-family: var(--font-body);
-    color: var(--color-white);
+}
+
+p {
+    font-size: calc(1.5 * var(--base-size));
+    font-family: var(--font-heading);
+    color: var(--color-accent);
     display: flex;
     justify-content: center;
 }
@@ -47,11 +51,8 @@ p {
 }
 
 /* BUTTON STYLING */
-#buttons, #filter-buttons{
-    display: flex;
-    justify-content: center;
-    gap: calc(0.75 * var(--base-size));
-    margin-top: calc(1.5 * var(--base-size));
+#buttons {
+
 }
 
 #filter-buttons {
@@ -60,6 +61,10 @@ p {
     padding: calc(0.5 * var(--base-size)) calc(1 * var(--base-size));
     flex-wrap: wrap;
     margin-bottom: calc(1.5 * var(--base-size));
+    display: flex;
+    justify-content: center;
+    gap: calc(0.75 * var(--base-size));
+    margin-top: calc(1.5 * var(--base-size));
 }
 
 .filter-button {
@@ -82,9 +87,9 @@ p {
 .buttons {
     font-family: var(--font-heading);
     padding: calc(0.5 * var(--base-size)) calc(1 * var(--base-size));
-    color: var(--color-accent);
+    color: var(--color-green);
     border-radius: calc(2 * var(--base-size));
-    background-color: var(--color-primary);
+    border: 2px solid var(--color-green);
 }
 
 /* MEDIA STYLING */
@@ -196,7 +201,7 @@ p {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #03e6344d;
+    background-color: #03e63430;
 }
 
 /* SONAR EFFECT */
