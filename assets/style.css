@@ -24,11 +24,20 @@ header {
     font-family: var(--font-heading);
     font-weight: 400;
     color: var(--color-primary);
-    padding: calc(10 * var(--base-size)) calc(2 * var(--base-size));
     text-align: center;
 }
 
+main {
+    margin-top: calc(13.5 * var(--base-size));
+}
+
+h1 {
+    padding: calc(10 * var(--base-size)) calc(2 * var(--base-size));
+}
+
 h2 {
+    padding-right: calc(2 * var(--base-size));
+    padding-left: calc(2 * var(--base-size));
     font-size: calc(1.25 * var(--base-size));
     font-family: var(--font-heading);
     padding-bottom: calc(1.5 * var(--base-size));
@@ -51,6 +60,7 @@ p {
     color: var(--color-accent);
     display: flex;
     justify-content: center;
+    margin-top: calc(0.5 * var(--base-size));
 }
 
 /* IDK WHY BUT EVERYTIME I DELETE THE COUNT, ALL MY INFO DISAPPEARS */
@@ -62,26 +72,31 @@ p {
 #buttons {
     font-family: var(--font-heading);
     font-size: calc(1.25 * var(--base-size));
-    margin-top: calc(1.5 * var(--base-size));
     backdrop-filter: saturate(180%) blur(10px);
+}
+
+.buttons {
+    font-family: var(--font-heading);
+    padding: calc(1 * var(--base-size)) calc(1 * var(--base-size));
+    color: var(--color-green);
+    border-bottom: 2px solid var(--color-green);
 }
 
 #filter-buttons {
     font-family: var(--font-body);
     font-style: italic;
     font-size: calc(1 * var(--base-size));
-    padding: calc(0.5 * var(--base-size)) calc(.5 * var(--base-size));
-    margin-bottom: calc(1.5 * var(--base-size));
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: calc(0.5 * var(--base-size));
-    margin-top: calc(1.5 * var(--base-size));
+    position: sticky;
+    top: 0;
+    /* flex-wrap: wrap; */
+    justify-content: space-evenly;
+    /* gap: calc(0.5 * var(--base-size)); */
 }
 
 .filter-button {
-    padding: calc(0.5 * var(--base-size)) calc(1.5 * var(--base-size));
-    border-radius: calc(2 * var(--base-size));
+    padding: calc(1 * var(--base-size)) calc(0.75 * var(--base-size));
+    /* border-radius: calc(2 * var(--base-size)); */
     background: var(--color-primary);
     color: var(--color-accent);
     transition: all 0.3s ease-in-out;
@@ -94,14 +109,6 @@ p {
 
 .filter-button.active {
     background: var(--color-accent);
-}
-
-.buttons {
-    font-family: var(--font-heading);
-    padding: calc(0.5 * var(--base-size)) calc(1 * var(--base-size));
-    color: var(--color-green);
-    border-radius: calc(2 * var(--base-size));
-    border: 2px solid var(--color-green);
 }
 
 /* MEDIA STYLING */
@@ -133,6 +140,7 @@ p {
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -179,7 +187,7 @@ p {
     flex-wrap: wrap;
 }
 
-@keyframes pulse {
+/* @keyframes pulse {
     0% {
         transform: scale(1);
     }
@@ -189,7 +197,7 @@ p {
     100% {
         transform: scale(1);
     }
-}
+} */
 
 #channel-blocks li:nth-child(3n) {
     animation-delay: 1s;
@@ -212,12 +220,13 @@ p {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #03e63450;
+    background-color: #03e63445;
+    color: var(--color-accent);
 }
 
 /* SONAR EFFECT */
 .app {
-    padding-top: calc(400 * var(--base-size));
+    padding-top: calc(410 * var(--base-size));
     display: flex;
     justify-content: center;
     align-items: flex-end;
