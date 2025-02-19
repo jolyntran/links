@@ -52,7 +52,10 @@ p {
 
 /* BUTTON STYLING */
 #buttons {
-
+    font-family: var(--font-heading);
+    font-size: calc(1.25 * var(--base-size));
+    margin-top: calc(1.5 * var(--base-size));
+    backdrop-filter: saturate(180%) blur(10px);
 }
 
 #filter-buttons {
