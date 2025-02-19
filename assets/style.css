@@ -46,6 +46,7 @@ p {
     justify-content: center;
 }
 
+/* IDK WHY BUT EVERYTIME I DELETE THE COUNT, ALL MY INFO DISAPPEARS */
 #pings {
     display: none;
 }
@@ -124,6 +125,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     background-color: var(--color-green);
     animation: pulse 3s infinite ease-in-out;
 }
@@ -161,12 +163,6 @@ p {
 
 /* PDFS */
 #channel-blocks li a {
-    color: var(--color-white);
-    text-decoration: none;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 100%;
 }

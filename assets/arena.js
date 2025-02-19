@@ -22,11 +22,7 @@ let renderBlock = (block) => {
     // Determine category class for filtering
     if (block.class === 'Link') {
         blockItem.classList.add("link");
-        blockItem.innerHTML = `
-            <a href="${block.source.url}" target="_blank">
-                <img src="${block.image?.original?.url || 'default-thumbnail.jpg'}" alt="Link Preview">
-            </a>
-        `;
+        blockItem.innerHTML = `<p>${block.title} ↗</p>`;
     } 
     else if (block.class === 'Image') {
         blockItem.classList.add("image");
@@ -95,3 +91,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
