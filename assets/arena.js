@@ -19,7 +19,6 @@ let renderBlock = (block) => {
     let channelBlocks = document.querySelector('#channel-blocks');
     let blockItem = document.createElement('li');
 
-    // Determine category class for filtering
     if (block.class === 'Link') {
         blockItem.classList.add("link");
         blockItem.innerHTML = `<h4>Article</h4><p>${block.title} ↗</p>`;
