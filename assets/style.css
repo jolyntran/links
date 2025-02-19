@@ -59,6 +59,7 @@ p {
     font-size: calc(1.25 * var(--base-size));
     padding: calc(0.5 * var(--base-size)) calc(1 * var(--base-size));
     flex-wrap: wrap;
+    margin-bottom: calc(1.5 * var(--base-size));
 }
 
 .filter-button {
@@ -101,15 +102,15 @@ p {
     flex-wrap: wrap;
     position: absolute;
     justify-content: center;
-    gap: calc(3 * var(--base-size));
+    gap: calc(5 * var(--base-size));
     padding: calc(2 * var(--base-size));
     z-index: 10;
 }
 
 #channel-blocks li {
     position: relative;
-    width: calc(5.5 * var(--base-size));
-    height: calc(5.5 * var(--base-size));
+    width: calc(15 * var(--base-size));
+    height: calc(15 * var(--base-size));
     border-radius: 50%; 
     overflow: hidden;
     display: flex;
@@ -200,13 +201,14 @@ p {
 
 /* SONAR EFFECT */
 .app {
-    padding-top: calc(85 * var(--base-size));
+    padding-top: calc(400 * var(--base-size));
     display: flex;
     justify-content: center;
     align-items: flex-end;
     position: relative;
     /* overflow: hidden; */
     max-height: 100vh;
+    z-index: -10;
 }
 
 .sonar {
@@ -217,14 +219,15 @@ p {
 }
 
 .sonar__container {
-    width: 800%;
-    height: 800%;
+    width: calc(805 * var(--base-size));
+    height: calc(805 * var(--base-size));
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     border: 1px solid var(--color-green);
     border-radius: 50%;
+    backdrop-filter: saturate(180%) blur(10px);
 }
 
 .degree {
@@ -235,6 +238,7 @@ p {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
 .degree__line {
     height: 50%;
     width: 1px;
@@ -245,16 +249,26 @@ p {
     transform-origin: bottom center;
 }
 
-.distance__circle:nth-child(1) { width: 10%; height: 10%; }
-.distance__circle:nth-child(2) { width: 20%; height: 20%; }
-.distance__circle:nth-child(3) { width: 30%; height: 30%; }
-.distance__circle:nth-child(4) { width: 40%; height: 40%; }
-.distance__circle:nth-child(5) { width: 50%; height: 50%; }
-.distance__circle:nth-child(6) { width: 60%; height: 60%; }
-.distance__circle:nth-child(7) { width: 70%; height: 70%; }
-.distance__circle:nth-child(8) { width: 80%; height: 80%; }
-.distance__circle:nth-child(9) { width: 90%; height: 90%; }
-.distance__circle:nth-child(10) { width: 100%; height: 100%; }
+.distance__circle:nth-child(1) { width: 5%; height: 5%; }
+.distance__circle:nth-child(2) { width: 10%; height: 10%; }
+.distance__circle:nth-child(3) { width: 15%; height: 15%; }
+.distance__circle:nth-child(4) { width: 20%; height: 20%; }
+.distance__circle:nth-child(5) { width: 25%; height: 25%; }
+.distance__circle:nth-child(6) { width: 30%; height: 30%; }
+.distance__circle:nth-child(7) { width: 35%; height: 35%; }
+.distance__circle:nth-child(8) { width: 40%; height: 40%; }
+.distance__circle:nth-child(9) { width: 45%; height: 45%; }
+.distance__circle:nth-child(10) { width: 50%; height: 50%; }
+.distance__circle:nth-child(11) { width: 55%; height: 55%; }
+.distance__circle:nth-child(12) { width: 60%; height: 60%; }
+.distance__circle:nth-child(13) { width: 65%; height: 65%; }
+.distance__circle:nth-child(14) { width: 70%; height: 70%; }
+.distance__circle:nth-child(15) { width: 75%; height: 75%; }
+.distance__circle:nth-child(16) { width: 80%; height: 80%; }
+.distance__circle:nth-child(17) { width: 85%; height: 85%; }
+.distance__circle:nth-child(18) { width: 90%; height: 90%; }
+.distance__circle:nth-child(19) { width: 95%; height: 95%; }
+.distance__circle:nth-child(20) { width: 100%; height: 100%; }
 
 .distance__circle {
     width: 50%;
