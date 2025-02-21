@@ -87,6 +87,7 @@ p {
     font-family: var(--font-body);
     font-style: italic;
     font-size: calc(1 * var(--base-size));
+    background: var(--color-primary);
 	display: flex;
 	justify-content: space-evenly;
 	flex-direction: row;
