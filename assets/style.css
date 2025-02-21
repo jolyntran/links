@@ -84,6 +84,7 @@ p {
 }
 
 #filter-buttons {
+    padding: calc(0.25 * var(--base-size));
     font-family: var(--font-body);
     font-style: italic;
     font-size: calc(1 * var(--base-size));
@@ -100,19 +101,15 @@ p {
 
 .filter-button {
     padding: calc(1 * var(--base-size)) calc(0.75 * var(--base-size));
-    /* border-radius: calc(2 * var(--base-size)); */
     background: var(--color-primary);
     color: var(--color-accent);
     transition: all 0.3s ease-in-out;
 }
 
-.filter-button:hover {
+.filter-button:hover, .filter-button.active {
     background: var(--color-accent);
     color: var(--color-primary);
-}
-
-.filter-button.active {
-    background: var(--color-accent);
+    border-radius: calc(2 * var(--base-size));
 }
 
 /* MEDIA STYLING */
@@ -137,6 +134,7 @@ p {
 }
 
 #channel-blocks li {
+    display: none;
     position: relative;
     width: calc(15 * var(--base-size));
     height: calc(15 * var(--base-size));

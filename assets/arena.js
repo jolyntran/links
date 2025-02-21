@@ -28,11 +28,12 @@ let renderBlock = (block) => {
 
     // Links!
     if (block.class === 'Link') {
-        let linkItem = `
-            <li>
-                <p><a href="${block.source.url}">${block.title} ↗</a></p>
-            </li>
-        `;
+		let linkItem = `
+			<li class="block block-link" id="${block.id}">
+				<figcaption>ARTICLE</figcaption>
+				<h4><a href="${block.source.url}">${block.title} ↗</a></h4>
+			</li>
+			`;
         channelBlocks.insertAdjacentHTML('beforeend', linkItem);
     } 
     // Images!
@@ -48,7 +49,7 @@ let renderBlock = (block) => {
     else if (block.class === 'Text') {
         let textItem = `
             <li>
-                <p>Text</p>
+                <figcaption>TEXT</figcaption>
                 <h4>${block.title}</h4>
             </li>
         `;
@@ -80,7 +81,7 @@ let renderBlock = (block) => {
         else if (attachment.includes('pdf')) {
             let pdfItem = `    
                 <li>
-                    <p>PDF</p>
+                    <figcaption>PDF</figcaption>
                     <h4><a href="${block.attachment.url}">${block.title} ↗</a></h4>
                 </li>
             `;
@@ -110,21 +111,4 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
     })
     .catch((error) => console.error('Error fetching Are.na data:', error));
 
-// Filtering System
-document.addEventListener("DOMContentLoaded", () => {
-    const filterButtons = document.querySelectorAll(".filter-button");
-    const channelBlocks = document.getElementById("channel-blocks");
 
-    if (!channelBlocks) return;
-
-    filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const filterValue = button.getAttribute("data-filter");
-            const filterItems = channelBlocks.querySelectorAll("li");
-
-            filterItems.forEach(item => {
-                item.style.display = (filterValue === "all" || item.classList.contains(filterValue)) ? "block" : "none";
-            });
-        });
-    });
-});
