@@ -1,5 +1,4 @@
 // Load Markdown-It for parsing Are.na descriptions
-// More about Markdown: https://en.wikipedia.org/wiki/Markdown
 let markdownIt = document.createElement('script');
 markdownIt.src = 'https://cdn.jsdelivr.net/npm/markdown-it@14.0.0/dist/markdown-it.min.js';
 document.head.appendChild(markdownIt);
@@ -31,7 +30,7 @@ let renderBlock = (block) => {
     if (block.class === 'Link') {
         let linkItem = `
             <li>
-                <p><a href="${block.source.url}" target="_blank">${block.title} ↗</a></p>
+                <p><a href="${block.source.url}">${block.title} ↗</a></p>
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', linkItem);
@@ -49,7 +48,7 @@ let renderBlock = (block) => {
     else if (block.class === 'Text') {
         let textItem = `
             <li>
-                <p><em>Text</em></p>
+                <p>Text</p>
                 <h4>${block.title}</h4>
             </li>
         `;
@@ -81,8 +80,8 @@ let renderBlock = (block) => {
         else if (attachment.includes('pdf')) {
             let pdfItem = `    
                 <li>
-                    <p><em>PDF</em></p>
-                    <h4><a href="${block.attachment.url}" target="_blank">${block.title} ↗</a></h4>
+                    <p>PDF</p>
+                    <h4><a href="${block.attachment.url}">${block.title} ↗</a></h4>
                 </li>
             `;
             channelBlocks.insertAdjacentHTML('beforeend', pdfItem);
