@@ -51,7 +51,7 @@ em {
 h4 {
     color: var(--color-accent);
     font-family: var(--font-body);
-    font-size: calc(1 * var(--base-size));
+    font-size: calc(1.25 * var(--base-size));
     font-style: italic;
 }
 
@@ -148,6 +148,12 @@ p {
     text-align: center;
     background-color: var(--color-green);
     animation: pulse 3s infinite ease-in-out;
+}
+
+figcaption {
+    font-size: calc(1.25 * var(--base-size));
+    font-family: var(--font-heading);
+    color: var(--color-accent)
 }
 
 /* IMAGES */

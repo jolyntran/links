@@ -30,7 +30,7 @@ let renderBlock = (block) => {
     if (block.class === 'Link') {
 		let linkItem = `
 			<li class="block-link" id="${block.id}">
-				<figcaption>ARTICLE</figcaption>
+				<figcaption>Article</figcaption>
 				<h4><a href="${block.source.url}">${block.title} ↗</a></h4>
 			</li>
 			`;
@@ -49,7 +49,7 @@ let renderBlock = (block) => {
     else if (block.class === 'Text') {
         let textItem = `
             <li class="block-quotes" id="${block.id}">
-                <figcaption>TEXT</figcaption>
+                <figcaption>Text</figcaption>
                 <h4>${block.title}</h4>
             </li>
         `;
