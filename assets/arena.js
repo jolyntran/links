@@ -29,7 +29,7 @@ let renderBlock = (block) => {
     // Links!
     if (block.class === 'Link') {
 		let linkItem = `
-			<li class="block block-link" id="${block.id}">
+			<li class="block-link" id="${block.id}">
 				<figcaption>ARTICLE</figcaption>
 				<h4><a href="${block.source.url}">${block.title} ↗</a></h4>
 			</li>
@@ -39,7 +39,7 @@ let renderBlock = (block) => {
     // Images!
     else if (block.class === 'Image') {
         let imageItem = `
-            <li>
+            <li class="block-image" id="${block.id}">
                 <img src="${block.image?.original?.url}" alt="Image Block">
             </li>
         `;
@@ -48,7 +48,7 @@ let renderBlock = (block) => {
     // Text!
     else if (block.class === 'Text') {
         let textItem = `
-            <li>
+            <li class="block-quotes" id="${block.id}">
                 <figcaption>TEXT</figcaption>
                 <h4>${block.title}</h4>
             </li>
@@ -62,7 +62,7 @@ let renderBlock = (block) => {
         // Uploaded videos!
         if (attachment.includes('video')) {
             let videoItem = `
-                <li>
+                <li class="block-video" id="${block.id}">
                     <video controls src="${block.attachment.url}"></video>
                 </li>
             `;
@@ -71,7 +71,7 @@ let renderBlock = (block) => {
         // Uploaded audio!
         else if (attachment.includes('audio')) {
             let audioItem = `
-                <li>
+                <li class="block-audio" id="${block.id}">
                     <audio controls src="${block.attachment.url}"></audio>
                 </li>
             `;
@@ -112,3 +112,28 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
     .catch((error) => console.error('Error fetching Are.na data:', error));
 
 
+// FILTERING SYSTEM
+document.addEventListener("DOMContentLoaded", () => {
+    const channelBlocks = document.getElementById("channel-blocks");
+
+    if (!channelBlocks) return;
+
+    document.getElementById("filter-buttons").addEventListener("click", (event) => {
+        if (event.target.classList.contains("filter-button")) {
+            const filterValue = event.target.getAttribute("data-filter");
+            const filterItems = channelBlocks.querySelectorAll("li");
+
+            filterItems.forEach(item => {
+                let classListArray = Array.from(item.classList);
+
+                if (filterValue === "all" || 
+                    classListArray.includes(filterValue) || 
+                    classListArray.some(cls => cls === `block-${filterValue}`)) {
+                    item.style.display = "";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+    });
+});
