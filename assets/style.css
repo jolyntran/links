@@ -28,8 +28,10 @@ header {
 }
 
 main {
-    min-height: 200vh;
+    min-height: 755vh;
+    max-height: fit-content;
     margin-top: calc(13.5 * var(--base-size));
+    position: relative;
 }
 
 h1 {
@@ -230,11 +232,11 @@ figcaption {
     height: 100%;
     background-color: #03e63445;
     color: var(--color-accent);
+    pointer-events: none
 }
 
 /* SONAR EFFECT */
 .app {
-    padding-top: calc(410 * var(--base-size));
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -245,15 +247,15 @@ figcaption {
 }
 
 .sonar {
-    width: 80%;
-    padding-top: 80%;
+    /* width: 50%;
+    padding-top: 50%; */
     height: 0;
     position: relative;
 }
 
 .sonar__container {
-    width: calc(805 * var(--base-size));
-    height: calc(805 * var(--base-size));
+    width: calc(800 * var(--base-size));
+    height: calc(800 * var(--base-size));
     position: absolute;
     left: 50%;
     top: 50%;

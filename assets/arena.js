@@ -112,28 +112,28 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
     .catch((error) => console.error('Error fetching Are.na data:', error));
 
 
-// FILTERING SYSTEM
-document.addEventListener("DOMContentLoaded", () => {
-    const channelBlocks = document.getElementById("channel-blocks");
+// // FILTERING SYSTEM
+// document.addEventListener("DOMContentLoaded", () => {
+//     const channelBlocks = document.getElementById("channel-blocks");
 
-    if (!channelBlocks) return;
+//     if (!channelBlocks) return;
 
-    document.getElementById("filter-buttons").addEventListener("click", (event) => {
-        if (event.target.classList.contains("filter-button")) {
-            const filterValue = event.target.getAttribute("data-filter");
-            const filterItems = channelBlocks.querySelectorAll("li");
+//     document.getElementById("filter-buttons").addEventListener("click", (event) => {
+//         if (event.target.classList.contains("filter-button")) {
+//             const filterValue = event.target.getAttribute("data-filter");
+//             const filterItems = channelBlocks.querySelectorAll("li");
 
-            filterItems.forEach(item => {
-                let classListArray = Array.from(item.classList);
+//             filterItems.forEach(item => {
+//                 let classListArray = Array.from(item.classList);
 
-                if (filterValue === "all" || 
-                    classListArray.includes(filterValue) || 
-                    classListArray.some(cls => cls === `block-${filterValue}`)) {
-                    item.style.display = "";
-                } else {
-                    item.style.display = "none";
-                }
-            });
-        }
-    });
-});
+//                 if (filterValue === "all" || 
+//                     classListArray.includes(filterValue) || 
+//                     classListArray.some(cls => cls === `block-${filterValue}`)) {
+//                     item.style.display = "";
+//                 } else {
+//                     item.style.display = "none";
+//                 }
+//             });
+//         }
+//     });
+// });
