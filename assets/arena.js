@@ -40,7 +40,17 @@ let renderBlock = (block) => {
     else if (block.class === 'Image') {
         let imageItem = `
             <li class="block-image" id="${block.id}">
-                <img src="${block.image?.original?.url}" alt="Image Block">
+                <button>
+                    <img src="${block.image?.original?.url}" alt="Image Block">
+                </button>
+                <dialog>
+					<div>
+						<p class="block-title-style">${block.title}</p>
+					</div>
+					<img src="${block.image.original.url}"></img>
+					<a href="${block.image.original.url}">See original ↗</a>
+					<button class="Close">×</button>
+				</dialog>
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', imageItem);
@@ -49,12 +59,22 @@ let renderBlock = (block) => {
     else if (block.class === 'Text') {
         let textItem = `
             <li class="block-quotes" id="${block.id}">
-                <figcaption>Text</figcaption>
-                <h4>${block.title}</h4>
+                <button>
+                    <figcaption>Text</figcaption>
+                    <h4>${block.title}</h4>
+                </button>
+                <dialog>
+					<div>
+						<p class="block-title-style">${block.title}</p>
+						<p class="dialog-content">${block.content}</p>
+					</div>
+					<button class="Close">×</button>
+				</dialog>
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', textItem);
     } 
+    
     // Uploaded (not linked) media…
     else if (block.class === 'Attachment') {
         let attachment = block.attachment.content_type; // Save us some repetition
@@ -63,7 +83,18 @@ let renderBlock = (block) => {
         if (attachment.includes('video')) {
             let videoItem = `
                 <li class="block-video" id="${block.id}">
-                    <video controls src="${block.attachment.url}"></video>
+                    <button>
+                        <video controls src="${block.attachment.url}"></video>
+                    </button>
+                    <dialog>
+                        <div>
+                            <p class="block-title-style">${block.title}</p>
+                            <source src="${ block.source.url }" type="video/mp4">
+                            <source src="${ block.source.url }" type="video/ogg">
+                            <a href="${ block.source.url }">See original ↗</a>
+                        </div>
+					    <button class="Close">×</button>
+				    </dialog>
                 </li>
             `;
             channelBlocks.insertAdjacentHTML('beforeend', videoItem);
@@ -72,7 +103,17 @@ let renderBlock = (block) => {
         else if (attachment.includes('audio')) {
             let audioItem = `
                 <li class="block-audio" id="${block.id}">
-                    <audio controls src="${block.attachment.url}"></audio>
+                    <button>
+                        <audio controls src="${block.attachment.url}"></audio>
+                    </button>
+                    <dialog>
+                        <div>
+                            <p class="block-title-style">${ block.generated_title }</p>
+                            <p>${block.content}</p>
+                            <audio controls src="${block.attachment.url}"></audio>
+                        </div>
+                        <button class="Close">×</button>
+				    </dialog>
                 </li>
             `;
             channelBlocks.insertAdjacentHTML('beforeend', audioItem);
@@ -92,11 +133,41 @@ let renderBlock = (block) => {
     else if (block.class === 'Media' && block.embed?.html) {
         let mediaItem = `
             <li>
-                ${block.embed.html}
+                <button>
+                    ${block.embed.html}
+                </button>
+                <dialog>
+					<div>
+						<p class="block-title-style">${block.title}</p>
+						<iframe ${block.embed.html} </iframe>
+					</div>
+					<button class="Close">×</button>
+				</dialog>
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', mediaItem);
     }
+    // // Linked audio!
+	// 	else if (embed.includes('rich')) {
+	// 		// …up to you!
+	// 		let linkedAudioItem = 
+	// 		`
+	// 		<li class="linked-audio-block">
+	// 		<button class="polaroid rotate">
+	// 			<img src="${ block.image.thumb.url }"></img>
+	// 			<h3 class="block-title">${ block.generated_title }</h3>
+	// 		</button>
+	// 			<dialog>
+	// 					<div>
+	// 						<p class="block-title-style">${ block.generated_title }</p>
+	// 						<img src="${ block.image.thumb.url }"></img>
+	// 					</div>
+	// 					<button class="Close">×</button>
+	// 			</dialog>
+	// 		</li>
+	// 		`
+	// 		channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem)
+	// 	}
 };
 
 // Now that we have said what we can do, go get the data:
