@@ -44,13 +44,13 @@ let renderBlock = (block) => {
                     <img src="${block.image?.original?.url}" alt="Image Block">
                 </button>
                 <dialog>
-					<div>
-						<p class="block-title-style">${block.title}</p>
-					</div>
-					<img src="${block.image.original.url}"></img>
-					<a href="${block.image.original.url}">See original ↗</a>
-					<button class="Close">×</button>
-				</dialog>
+                    <div class="dialog-content">
+                        <p class="block-title-style">${block.title}</p>
+                        <img src="${block.image.original.url}" alt="${block.title}">
+                        <a href="${block.image.original.url}">See original ↗</a>
+                    </div>
+                    <button class="close-button">×</button>
+                </dialog>
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', imageItem);
@@ -64,12 +64,12 @@ let renderBlock = (block) => {
                     <h4>${block.title}</h4>
                 </button>
                 <dialog>
-					<div>
-						<p class="block-title-style">${block.title}</p>
-						<p class="dialog-content">${block.content}</p>
-					</div>
-					<button class="Close">×</button>
-				</dialog>
+                    <div class="dialog-content">
+                        <p class="block-title-style">${block.title}</p>
+                        <p class="dialog-text">${block.content}</p>
+                    </div>
+                    <button class="close-button">×</button>
+                </dialog>
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', textItem);
@@ -87,14 +87,16 @@ let renderBlock = (block) => {
                         <video controls src="${block.attachment.url}"></video>
                     </button>
                     <dialog>
-                        <div>
+                        <div class="dialog-content">
                             <p class="block-title-style">${block.title}</p>
-                            <source src="${ block.source.url }" type="video/mp4">
-                            <source src="${ block.source.url }" type="video/ogg">
-                            <a href="${ block.source.url }">See original ↗</a>
+                            <video controls>
+                                <source src="${block.attachment.url}" type="video/mp4">
+                                <source src="${block.attachment.url}" type="video/ogg">
+                            </video>
+                            <a href="${block.attachment.url}">See original ↗</a>
                         </div>
-					    <button class="Close">×</button>
-				    </dialog>
+                        <button class="close-button">×</button>
+                    </dialog>
                 </li>
             `;
             channelBlocks.insertAdjacentHTML('beforeend', videoItem);
@@ -107,13 +109,13 @@ let renderBlock = (block) => {
                         <audio controls src="${block.attachment.url}"></audio>
                     </button>
                     <dialog>
-                        <div>
-                            <p class="block-title-style">${ block.generated_title }</p>
-                            <p>${block.content}</p>
+                        <div class="dialog-content">
+                            <p class="block-title-style">${block.generated_title}</p>
+                            <p class="dialog-text">${block.content}</p>
                             <audio controls src="${block.attachment.url}"></audio>
                         </div>
-                        <button class="Close">×</button>
-				    </dialog>
+                        <button class="close-button">×</button>
+                    </dialog>
                 </li>
             `;
             channelBlocks.insertAdjacentHTML('beforeend', audioItem);
@@ -132,17 +134,17 @@ let renderBlock = (block) => {
     // Linked media…
     else if (block.class === 'Media' && block.embed?.html) {
         let mediaItem = `
-            <li>
+            <li class="block-media" id="${block.id}">
                 <button>
                     ${block.embed.html}
                 </button>
                 <dialog>
-					<div>
-						<p class="block-title-style">${block.title}</p>
-						<iframe ${block.embed.html} </iframe>
-					</div>
-					<button class="Close">×</button>
-				</dialog>
+                    <div class="dialog-content">
+                        <p class="block-title-style">${block.title}</p>
+                        <iframe src="${block.embed.url}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <button class="close-button">×</button>
+                </dialog>
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', mediaItem);
