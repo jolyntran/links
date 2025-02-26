@@ -22,6 +22,9 @@
         --base-size: 20px;
         --gutter-size: calc(3 * var(--base-size));
     }
+    dialog {
+        max-width: 50vw; 
+    }
 }
 
 body {
@@ -244,7 +247,7 @@ dialog {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: calc(30 * var(--base-size));
+    width: calc(20 * var(--base-size));
     max-width: 95vw; 
     max-height: 80vh; 
     transform: translate(-50%, -50%);
@@ -314,9 +317,17 @@ dialog[open] {
 }
 
 .block-video video {
-    width: 100%;
-    max-height: 50vh; 
+    height: auto;
+    max-width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
     border-radius: calc(1 * var(--base-size));
+}
+
+.block-video button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .block-video a {

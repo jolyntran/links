@@ -83,7 +83,7 @@ let renderBlock = (block) => {
             let videoItem = `
                 <li class="block-video">
                     <button>
-                        <video controls src="${block.attachment.url}"></video>
+                        <video src="${block.attachment.url}" type="video/mp4"></video>
                     </button>
                     <dialog>
                         <div class="dialog-content">
@@ -134,7 +134,7 @@ let renderBlock = (block) => {
         let mediaItem = `
             <li class="block-media">
                 <button>
-                    ${block.embed.html}
+                    <div>${block.embed.html}</div>
                 </button>
                 <dialog>
                     <div class="dialog-content">
@@ -153,9 +153,9 @@ let renderBlock = (block) => {
 			let linkedAudioItem = 
 			`
 			<li class="block-linked-audio">
-			<button>
-				<img src="${ block.image.thumb.url }"></img>
-			</button>
+			    <button>
+				    <img src="${ block.image.thumb.url }"></img>
+			    </button>
 				<dialog>
 						<div>
 							<p class="block-title">${ block.generated_title }</p>
