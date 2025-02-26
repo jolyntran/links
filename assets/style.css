@@ -39,7 +39,6 @@ header {
 }
 
 main {
-    min-height: 755vh;
     max-height: fit-content;
     margin-top: calc(13.5 * var(--base-size));
     position: relative;
@@ -332,14 +331,15 @@ dialog[open] {
 
 /* SONAR EFFECT */
 .app {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    position: relative;
-    /* overflow: hidden; */
-    max-height: 100vh;
-    z-index: -10;
+    position: fixed; 
+    left: 50%;
+    top: 50%;
+    width: 100vw; 
+    height: 100vh; 
+    z-index: -10; 
+    overflow: hidden; 
 }
+
 
 .sonar {
     width: 50%;
