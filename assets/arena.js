@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     item.style.display = "none";
                 }
             });
-        }
+        };
     });
 });
 
