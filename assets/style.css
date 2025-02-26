@@ -159,8 +159,8 @@ figcaption {
 }
 
 #channel-blocks li img, #channel-blocks li video, #channel-blocks li iframe {
-    width: 200%;
-    height: 200%;
+    width: calc(18 * var(--base-size));
+    height: calc(18 * var(--base-size));
     object-fit: cover; 
     overflow: hidden;
     object-position: center;
@@ -221,9 +221,14 @@ figcaption {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #03e63445;
+    background-color: #03e634be;
     color: var(--color-accent);
     pointer-events: none
+}
+
+#channel-blocks li:hover::before {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
 }
 
 /* DIALOG FORMATING */

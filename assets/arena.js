@@ -117,6 +117,7 @@ let renderBlock = (block) => {
         //     `;
         //     channelBlocks.insertAdjacentHTML('beforeend', audioItem);
         // } 
+        
         // Uploaded PDFs!
         else if (attachment.includes('pdf')) {
             let pdfItem = `    
