@@ -134,12 +134,13 @@ let renderBlock = (block) => {
         let mediaItem = `
             <li class="block-media">
                 <button>
-                    <div>${block.embed.html}</div>
+                    <img src="${block.image.original.url}">
                 </button>
                 <dialog>
                     <div class="dialog-content">
                         <p class="block-title">${block.title}</p>
-                        <iframe src="${block.embed.url}"></iframe>
+                        <a href="${block.source.url}">See original ↗</a>
+                        ${block.embed.html}
                     </div>
                     <button class="close-button">Explore more</button>
                 </dialog>
@@ -157,9 +158,10 @@ let renderBlock = (block) => {
 				    <img src="${ block.image.thumb.url }"></img>
 			    </button>
 				<dialog>
-						<div>
+						<div class ="dialog-content">>
 							<p class="block-title">${ block.generated_title }</p>
-							<img src="${ block.image.thumb.url }"></img>
+						    <a href="${block.source.url}">See original ↗</a>
+                            ${block.embed.html}
 						</div>
 						<button class="close-button">Explore more</button>
 				</dialog>

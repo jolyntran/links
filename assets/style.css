@@ -77,7 +77,6 @@ p {
     margin-top: calc(0.5 * var(--base-size));
 }
 
-/* IDK WHY BUT EVERYTIME I DELETE THE COUNT, ALL MY INFO DISAPPEARS */
 #pings {
     display: none;
 }
@@ -138,7 +137,7 @@ p {
 #channel-blocks {
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
+    position: relative;
     justify-content: center;
     align-items: center;
     gap: calc(5 * var(--base-size));
@@ -316,7 +315,7 @@ dialog[open] {
     overflow-wrap: break-word;
 }
 
-.block-video video {
+.block-video video, .block-media iframe {
     height: auto;
     max-width: 100%;
     max-height: 50vh;
@@ -324,32 +323,11 @@ dialog[open] {
     border-radius: calc(1 * var(--base-size));
 }
 
-.block-video button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.block-video a {
+.block-video a, .block-media a {
     font-size: calc(0.75 * var(--base-size));
     color: var(--color-accent);
     margin-bottom: calc(0.5 * var(--base-size));
     text-decoration: underline;
-}
-
-.block-media iframe {
-    width: 100%;
-    height: 40vh; 
-    max-height: 50vh; 
-    border-radius: calc(1 * var(--base-size));
-}
-
-.linked-audio-block img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
-    border-radius: calc(1 * var(--base-size));
 }
 
 /* SONAR EFFECT */
@@ -465,4 +443,22 @@ dialog[open] {
 @keyframes rotating {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+footer {
+    background-color: var(--color-green); 
+    padding: calc(1 * var(--base-size)) 0;
+    margin-top: calc(1 * var(--base-size));
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly; 
+    align-items: center; 
+    text-align: center;
+}
+
+footer p {
+    font-family: var(--font-body);
+    font-size: calc(1 * var(--base-size));
+    margin: 0;
+    flex: 1; 
 }
