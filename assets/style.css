@@ -12,6 +12,7 @@
     background-image: url("background.svg");
     background-attachment: fixed;
     max-width: 100%;
+    max-height: fit-content;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -326,6 +327,13 @@ dialog a {
     border-radius: calc(1 * var(--base-size));
 }
 
+.linked-audio-block  {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: calc(1 * var(--base-size));
+}
 
 
 /* SONAR EFFECT */
