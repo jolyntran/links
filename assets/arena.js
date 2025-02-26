@@ -53,30 +53,6 @@ let renderBlock = (block) => {
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', imageItem);
-
-        let initInteraction = () => {
-            let imageBlock = document.querySelectorAll('.block-image')
-            imageBlock.forEach((block) => {
-                let openButton = block.querySelector('button')
-                let dialog = block.querySelector('dialog')
-                let closeButton = dialog.querySelector('button')
-        
-                openButton.onclick = () => {
-                    dialog.showModal()
-                }
-        
-                closeButton.onclick = () => {
-                    dialog.close()
-                }
-        
-                dialog.onclick = (event) => {
-                    if (event.target == dialog) {
-                        dialog.close()
-                    }
-                }
-            })
-        }
-        initInteraction();
     } 
     // Text!
     else if (block.class === 'Text') {
@@ -96,30 +72,6 @@ let renderBlock = (block) => {
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', textItem);
-    
-        let initInteraction = () => {
-            let textBlocks = document.querySelectorAll('.block-quotes')
-            textBlocks.forEach((block) => {
-                let openButton = block.querySelector('button')
-                let dialog = block.querySelector('dialog')
-                let closeButton = dialog.querySelector('button')
-        
-                openButton.onclick = () => {
-                    dialog.showModal()
-                }
-        
-                closeButton.onclick = () => {
-                    dialog.close()
-                }
-        
-                dialog.onclick = (event) => {
-                    if (event.target == dialog) {
-                        dialog.close()
-                    }
-                }
-            })
-        }
-        initInteraction();
     } 
     
     // Uploaded (not linked) media…
@@ -146,30 +98,6 @@ let renderBlock = (block) => {
                 </li>
             `;
             channelBlocks.insertAdjacentHTML('beforeend', videoItem);
-        
-            let initInteraction = () => {
-                let videoBlocks = document.querySelectorAll('.block-video')
-                videoBlocks.forEach((block) => {
-                    let openButton = block.querySelector('button')
-                    let dialog = block.querySelector('dialog')
-                    let closeButton = dialog.querySelector('button')
-            
-                    openButton.onclick = () => {
-                        dialog.showModal()
-                    }
-            
-                    closeButton.onclick = () => {
-                        dialog.close()
-                    }
-            
-                    dialog.onclick = (event) => {
-                        if (event.target == dialog) {
-                            dialog.close()
-                        }
-                    }
-                })
-            }
-            initInteraction();
         } 
         // Uploaded audio! took off bc it displayed as null
         // else if (attachment.includes('audio')) {
@@ -218,37 +146,13 @@ let renderBlock = (block) => {
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', mediaItem);
-        
-        let initInteraction = () => {
-            let mediaBlocks = document.querySelectorAll('.block-media')
-            mediaBlocks.forEach((block) => {
-                let openButton = block.querySelector('button')
-                let dialog = block.querySelector('dialog')
-                let closeButton = dialog.querySelector('button')
-        
-                openButton.onclick = () => {
-                    dialog.showModal()
-                }
-        
-                closeButton.onclick = () => {
-                    dialog.close()
-                }
-        
-                dialog.onclick = (event) => {
-                    if (event.target == dialog) {
-                        dialog.close()
-                    }
-                }
-            })
-        }
-        initInteraction();
-    } 
+        } 
     // Linked audio!
 		else if (embed.includes('rich')) {
 			// …up to you!
 			let linkedAudioItem = 
 			`
-			<li class="linked-audio-block">
+			<li class="block-linked-audio">
 			<button>
 				<img src="${ block.image.thumb.url }"></img>
 			</button>
@@ -262,32 +166,30 @@ let renderBlock = (block) => {
 			</li>
 			`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem)
-            
-            let initInteraction = () => {
-                let linkedAudioBlocks = document.querySelectorAll('.linked-audio-block')
-                linkedAudioBlocks.forEach((block) => {
-                    let openButton = block.querySelector('button')
-                    let dialog = block.querySelector('dialog')
-                    let closeButton = dialog.querySelector('button')
-            
-                    openButton.onclick = () => {
-                        dialog.showModal()
-                    }
-            
-                    closeButton.onclick = () => {
-                        dialog.close()
-                    }
-            
-                    dialog.onclick = (event) => {
-                        if (event.target == dialog) {
-                            dialog.close()
-                        }
-                    }
-                })
-            }
-            initInteraction();
-        } 
+            } 
 };
+
+let initInteraction = () => {
+	let blocks = document.querySelectorAll('.block-image, .block-quotes, .block-video, .block-media, .block-linked-audio')
+	blocks.forEach((block) => {
+		let openButton = block.querySelector('button')
+		let dialog = block.querySelector('dialog')
+		let closeButton = dialog.querySelector('button')
+		
+		openButton.onclick = () => {
+			dialog.showModal()
+		}
+
+		closeButton.onclick = () => {
+			dialog.close()
+		}
+
+		dialog.onclick = (event) => { 
+			if (event.target == dialog) { 
+				dialog.close() 
+			}}
+	})
+}
 
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
@@ -301,7 +203,6 @@ fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-stor
 			console.log(block) // The data for a single block
 			renderBlock(block) // Pass the single block data to the render function
 		})
-
 		initInteraction()
 	})
 
