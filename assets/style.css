@@ -14,6 +14,7 @@
     max-width: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 @media (min-width: 600px) {
@@ -21,6 +22,10 @@
         --base-size: 20px;
         --gutter-size: calc(3 * var(--base-size));
     }
+}
+
+body {
+    overflow-x: hidden; 
 }
 
 header {
@@ -139,7 +144,7 @@ p {
 }
 
 #channel-blocks li {
-    display: block;
+    display: flex;
     position: relative;
     width: calc(15 * var(--base-size));
     height: calc(15 * var(--base-size));
@@ -162,8 +167,8 @@ figcaption {
 }
 
 #channel-blocks li img, #channel-blocks li video, #channel-blocks li iframe {
-    width: calc(18 * var(--base-size));
-    height: calc(18 * var(--base-size));
+    width: calc(25 * var(--base-size));
+    height: calc(25 * var(--base-size));
     object-fit: cover; 
     overflow: hidden;
     object-position: center;
@@ -239,9 +244,9 @@ dialog {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: alc(30 * var(--base-size));;
-    max-width: 100vw; 
-    max-height: 100vh; 
+    width: calc(30 * var(--base-size));
+    max-width: 95vw; 
+    max-height: 80vh; 
     transform: translate(-50%, -50%);
     background: var(--color-green);
     padding: calc(1 * var(--base-size));;
@@ -253,20 +258,17 @@ dialog {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    max-height: 50vh;
+    height: auto;
+    overflow-y: auto;
+    border-radius: calc(1 * var(--base-size));
+    object-fit: contain;
 }
 
 .block-title {
     font-size: calc(2 * var(--base-size));
     font-family: var(--font-heading);
     color: var(--color-accent);
-}
-
-.dialog-content {
-    max-height: 50vh;
-    height: auto;
-    overflow-y: auto;
-    border-radius: calc(1 * var(--base-size));
-    object-fit: contain;
 }
 
 .close-button {
@@ -301,6 +303,7 @@ dialog {
     text-align: left;
     line-height: calc(1.5 * var(--base-size));
     margin-bottom: calc(0.75 * var(--base-size));
+    overflow-wrap: break-word;
 }
 
 dialog video {
@@ -309,14 +312,18 @@ dialog video {
     border-radius: calc(1 * var(--base-size));
 }
 
-dialog a:hover {
-    text-decoration: underline;
-}
-
 dialog a {
     font-size: calc(0.75 * var(--base-size));
     color: var(--color-accent);
     margin-bottom: calc(0.5 * var(--base-size));
+    text-decoration: underline;
+}
+
+.block-media  {
+    width: 100%;
+    height: 40vh; 
+    max-height: 50vh; 
+    border-radius: calc(1 * var(--base-size));
 }
 
 

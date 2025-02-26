@@ -218,7 +218,31 @@ let renderBlock = (block) => {
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', mediaItem);
-    }
+        
+        let initInteraction = () => {
+            let linkBlocks = document.querySelectorAll('.block-media')
+            linkBlocks.forEach((block) => {
+                let openButton = block.querySelector('button')
+                let dialog = block.querySelector('dialog')
+                let closeButton = dialog.querySelector('button')
+        
+                openButton.onclick = () => {
+                    dialog.showModal()
+                }
+        
+                closeButton.onclick = () => {
+                    dialog.close()
+                }
+        
+                dialog.onclick = (event) => {
+                    if (event.target == dialog) {
+                        dialog.close()
+                    }
+                }
+            })
+        }
+        initInteraction();
+    } 
     // Linked audio!
 		else if (embed.includes('rich')) {
 			// …up to you!
@@ -238,7 +262,31 @@ let renderBlock = (block) => {
 			</li>
 			`
 			channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem)
-		}
+            
+            let initInteraction = () => {
+                let linkBlocks = document.querySelectorAll('.linked-audio-block')
+                linkBlocks.forEach((block) => {
+                    let openButton = block.querySelector('button')
+                    let dialog = block.querySelector('dialog')
+                    let closeButton = dialog.querySelector('button')
+            
+                    openButton.onclick = () => {
+                        dialog.showModal()
+                    }
+            
+                    closeButton.onclick = () => {
+                        dialog.close()
+                    }
+            
+                    dialog.onclick = (event) => {
+                        if (event.target == dialog) {
+                            dialog.close()
+                        }
+                    }
+                })
+            }
+            initInteraction();
+        } 
 };
 
 // Now that we have said what we can do, go get the data:
