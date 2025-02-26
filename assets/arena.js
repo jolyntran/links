@@ -29,25 +29,24 @@ let renderBlock = (block) => {
     // Links!
     if (block.class === 'Link') {
 		let linkItem = `
-			<li class="block-link" id="${block.id}">
+			<li class="block-link">
 				<figcaption>Article</figcaption>
 				<h4><a href="${block.source.url}">${block.title} ↗</a></h4>
 			</li>
-			`;
+			`
         channelBlocks.insertAdjacentHTML('beforeend', linkItem);
     } 
     // Images!
     else if (block.class === 'Image') {
         let imageItem = `
-            <li class="block-image" id="${block.id}">
+            <li class="block-image" >
                 <button>
-                    <img src="${block.image?.original?.url}" alt="Image Block">
+                    <img src="${block.image.original.url}">
                 </button>
                 <dialog>
                     <div class="dialog-content">
-                        <p class="block-title-style">${block.title}</p>
-                        <img src="${block.image.original.url}" alt="${block.title}">
-                        <a href="${block.image.original.url}">See original ↗</a>
+                        <p class="block-title">${block.title}</p>
+                        <img src="${block.image.original.url}">
                     </div>
                     <button class="close-button">×</button>
                 </dialog>
@@ -58,14 +57,14 @@ let renderBlock = (block) => {
     // Text!
     else if (block.class === 'Text') {
         let textItem = `
-            <li class="block-quotes" id="${block.id}">
+            <li class="block-quotes">
                 <button>
                     <figcaption>Text</figcaption>
                     <h4>${block.title}</h4>
                 </button>
                 <dialog>
                     <div class="dialog-content">
-                        <p class="block-title-style">${block.title}</p>
+                        <p class="block-title">${block.title}</p>
                         <p class="dialog-text">${block.content}</p>
                     </div>
                     <button class="close-button">×</button>
@@ -82,16 +81,15 @@ let renderBlock = (block) => {
         // Uploaded videos!
         if (attachment.includes('video')) {
             let videoItem = `
-                <li class="block-video" id="${block.id}">
+                <li class="block-video">
                     <button>
                         <video controls src="${block.attachment.url}"></video>
                     </button>
                     <dialog>
                         <div class="dialog-content">
-                            <p class="block-title-style">${block.title}</p>
+                            <p class="block-title">${block.title}</p>
                             <video controls>
-                                <source src="${block.attachment.url}" type="video/mp4">
-                                <source src="${block.attachment.url}" type="video/ogg">
+                                <source src="${block.attachment.url}">
                             </video>
                             <a href="${block.attachment.url}">See original ↗</a>
                         </div>
@@ -101,29 +99,28 @@ let renderBlock = (block) => {
             `;
             channelBlocks.insertAdjacentHTML('beforeend', videoItem);
         } 
-        // Uploaded audio!
-        else if (attachment.includes('audio')) {
-            let audioItem = `
-                <li class="block-audio" id="${block.id}">
-                    <button>
-                        <audio controls src="${block.attachment.url}"></audio>
-                    </button>
-                    <dialog>
-                        <div class="dialog-content">
-                            <p class="block-title-style">${block.generated_title}</p>
-                            <p class="dialog-text">${block.content}</p>
-                            <audio controls src="${block.attachment.url}"></audio>
-                        </div>
-                        <button class="close-button">×</button>
-                    </dialog>
-                </li>
-            `;
-            channelBlocks.insertAdjacentHTML('beforeend', audioItem);
-        } 
+        // Uploaded audio! took off bc it displayed as null
+        // else if (attachment.includes('audio')) {
+        //     let audioItem = `
+        //         <li class="block-audio">
+        //             <button>
+        //                 <audio controls src="${block.attachment.url}"></audio>
+        //             </button>
+        //             <dialog>
+        //                 <div class="dialog-content">
+        //                     <p class="block-title">${block.generated_title}</p>
+        //                     <audio controls src="${block.attachment.url}"></audio>
+        //                 </div>
+        //                 <button class="close-button">×</button>
+        //             </dialog>
+        //         </li>
+        //     `;
+        //     channelBlocks.insertAdjacentHTML('beforeend', audioItem);
+        // } 
         // Uploaded PDFs!
         else if (attachment.includes('pdf')) {
             let pdfItem = `    
-                <li>
+                <li class="block-pdf">
                     <figcaption>PDF</figcaption>
                     <h4><a href="${block.attachment.url}">${block.title} ↗</a></h4>
                 </li>
@@ -132,16 +129,16 @@ let renderBlock = (block) => {
         }
     } 
     // Linked media…
-    else if (block.class === 'Media' && block.embed?.html) {
+    else if (block.class === 'Media') {
         let mediaItem = `
-            <li class="block-media" id="${block.id}">
+            <li class="block-media">
                 <button>
                     ${block.embed.html}
                 </button>
                 <dialog>
                     <div class="dialog-content">
-                        <p class="block-title-style">${block.title}</p>
-                        <iframe src="${block.embed.url}" frameborder="0" allowfullscreen></iframe>
+                        <p class="block-title">${block.title}</p>
+                        <iframe src="${block.embed.url}"></iframe>
                     </div>
                     <button class="close-button">×</button>
                 </dialog>
@@ -149,64 +146,66 @@ let renderBlock = (block) => {
         `;
         channelBlocks.insertAdjacentHTML('beforeend', mediaItem);
     }
-    // // Linked audio!
-	// 	else if (embed.includes('rich')) {
-	// 		// …up to you!
-	// 		let linkedAudioItem = 
-	// 		`
-	// 		<li class="linked-audio-block">
-	// 		<button class="polaroid rotate">
-	// 			<img src="${ block.image.thumb.url }"></img>
-	// 			<h3 class="block-title">${ block.generated_title }</h3>
-	// 		</button>
-	// 			<dialog>
-	// 					<div>
-	// 						<p class="block-title-style">${ block.generated_title }</p>
-	// 						<img src="${ block.image.thumb.url }"></img>
-	// 					</div>
-	// 					<button class="Close">×</button>
-	// 			</dialog>
-	// 		</li>
-	// 		`
-	// 		channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem)
-	// 	}
+    // Linked audio!
+		else if (embed.includes('rich')) {
+			// …up to you!
+			let linkedAudioItem = 
+			`
+			<li class="linked-audio-block">
+			<button>
+				<img src="${ block.image.thumb.url }"></img>
+			</button>
+				<dialog>
+						<div>
+							<p class="block-title">${ block.generated_title }</p>
+							<img src="${ block.image.thumb.url }"></img>
+						</div>
+						<button class="close-button">×</button>
+				</dialog>
+			</li>
+			`
+			channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem)
+		}
 };
 
 // Now that we have said what we can do, go get the data:
 fetch(`https://api.are.na/v2/channels/${channelSlug}?per=100`, { cache: 'no-store' })
-    .then((response) => response.json()) // Return it as JSON data
-    .then((data) => { // Do stuff with the data
-        console.log(data); // Always good to check your response!
-        placeChannelInfo(data); // Pass the data to the first function
+	.then((response) => response.json()) // Return it as JSON data
+	.then((data) => { // Do stuff with the data
+		console.log("data", data) // Always good to check your response!
+		placeChannelInfo(data) // Pass the data to the first function
 
-        // Loop through the `contents` array (list), backwards. Are.na returns them in reverse!
-        data.contents.reverse().forEach(renderBlock);
-    })
-    .catch((error) => console.error('Error fetching Are.na data:', error));
+		// Loop through the `contents` array (list), backwards. Are.na returns them in reverse!
+		data.contents.reverse().forEach((block) => {
+			console.log(block) // The data for a single block
+			renderBlock(block) // Pass the single block data to the render function
+		})
 
+		initInteraction()
+	})
 
-// // FILTERING SYSTEM
-// document.addEventListener("DOMContentLoaded", () => {
-//     const channelBlocks = document.getElementById("channel-blocks");
+// FILTERING SYSTEM
+document.addEventListener("DOMContentLoaded", () => {
+    const channelBlocks = document.getElementById("channel-blocks");
 
-//     if (!channelBlocks) return;
+    if (!channelBlocks) return;
 
-//     document.getElementById("filter-buttons").addEventListener("click", (event) => {
-//         if (event.target.classList.contains("filter-button")) {
-//             const filterValue = event.target.getAttribute("data-filter");
-//             const filterItems = channelBlocks.querySelectorAll("li");
+    document.getElementById("filter-buttons").addEventListener("click", (event) => {
+        if (event.target.classList.contains("filter-button")) {
+            const filterValue = event.target.getAttribute("data-filter");
+            const filterItems = channelBlocks.querySelectorAll("li");
 
-//             filterItems.forEach(item => {
-//                 let classListArray = Array.from(item.classList);
+            filterItems.forEach(item => {
+                let classListArray = Array.from(item.classList);
 
-//                 if (filterValue === "all" || 
-//                     classListArray.includes(filterValue) || 
-//                     classListArray.some(cls => cls === `block-${filterValue}`)) {
-//                     item.style.display = "";
-//                 } else {
-//                     item.style.display = "none";
-//                 }
-//             });
-//         }
-//     });
-// });
+                if (filterValue === "all" || 
+                    classListArray.includes(filterValue) || 
+                    classListArray.some(cls => cls === `block-${filterValue}`)) {
+                    item.style.display = "";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+    });
+});
