@@ -95,6 +95,17 @@ p {
     border-bottom: 2px solid var(--color-green);
 }
 
+.explore-button {
+    padding: calc(.75 * var(--base-size)) calc(5 * var(--base-size));
+    font-size: calc(1.25 * var(--base-size));
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    cursor: pointer;
+    text-shadow: none; 
+    border-radius: calc(2 * var(--base-size));
+    margin-top: calc(5 * var(--base-size));
+}
+
 #filter-buttons {
     padding: calc(0.25 * var(--base-size));
     font-family: var(--font-body);
