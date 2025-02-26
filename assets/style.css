@@ -197,7 +197,7 @@ figcaption {
     flex-wrap: wrap;
 }
 
-/* @keyframes pulse {
+@keyframes pulse {
     0% {
         transform: scale(1);
     }
@@ -207,7 +207,7 @@ figcaption {
     100% {
         transform: scale(1);
     }
-} */
+}
 
 #channel-blocks li:nth-child(3n) {
     animation-delay: 1s;
@@ -332,14 +332,16 @@ dialog[open] {
 /* SONAR EFFECT */
 .app {
     position: fixed; 
-    left: 50%;
-    top: 50%;
-    width: 100vw; 
-    height: 100vh; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh; 
     z-index: -10; 
-    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 
 .sonar {
     width: 50%;
@@ -349,8 +351,8 @@ dialog[open] {
 }
 
 .sonar__container {
-    width: calc(800 * var(--base-size));
-    height: calc(800 * var(--base-size));
+    width: calc(300 * var(--base-size));
+    height: calc(300 * var(--base-size));
     position: absolute;
     left: 50%;
     top: 50%;
