@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 audio.pause();
                 audio.currentTime = 0; 
-        });
-    });
-});
+        	};
+    	});
+	});
+})
