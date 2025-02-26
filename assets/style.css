@@ -11,6 +11,9 @@
     --font-body: "Playfair Display", sans-serif;
     background-image: url("background.svg");
     background-attachment: fixed;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 @media (min-width: 600px) {
@@ -232,8 +235,62 @@ figcaption {
 }
 
 /* DIALOG FORMATING */
+dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color-green);
+    padding: calc(1 * var(--base-size));;
+    border-radius: calc(1 * var(--base-size));;
+}
 
+.dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
+.block-title {
+    font-size: calc(1.25 * var(--base-size));
+    font-family: var(--font-body);
+    font-weight: bold;
+    margin-bottom: calc(1 * var(--base-size));
+    color: var(--color-accent);
+}
+
+.dialog-content {
+    max-width: 100%;
+    height: auto;
+    border-radius: calc(1 * var(--base-size));
+    object-fit: contain;
+}
+
+.close-button {
+    display: block;
+    width: 100%; 
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    padding: calc(1 * var(--base-size)) calc(1 * var(--base-size));
+    font-size: calc(1 * var(--base-size));
+    margin-top: calc(0.75 * var(--base-size));
+    cursor: pointer;
+    border-radius: calc(1 * var(--base-size));
+}
+
+.close-button:hover {
+    background: white;
+    color: var(--color-accent);
+}
+
+.block-image img {
+    width: calc(10 * var(--base-size));
+    height: calc(10 * var(--base-size));
+    object-fit: cover;
+    object-position: center;
+    border-radius: calc(1 * var(--base-size));
+}
 
 /* SONAR EFFECT */
 .app {

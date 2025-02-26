@@ -48,11 +48,35 @@ let renderBlock = (block) => {
                         <p class="block-title">${block.title}</p>
                         <img src="${block.image.original.url}">
                     </div>
-                    <button class="close-button">×</button>
+                    <button class="close-button">Explore more</button>
                 </dialog>
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', imageItem);
+
+        let initInteraction = () => {
+            let linkBlocks = document.querySelectorAll('.block-image')
+            linkBlocks.forEach((block) => {
+                let openButton = block.querySelector('button')
+                let dialog = block.querySelector('dialog')
+                let closeButton = dialog.querySelector('button')
+        
+                openButton.onclick = () => {
+                    dialog.showModal()
+                }
+        
+                closeButton.onclick = () => {
+                    dialog.close()
+                }
+        
+                dialog.onclick = (event) => {
+                    if (event.target == dialog) {
+                        dialog.close()
+                    }
+                }
+            })
+        }
+        initInteraction();
     } 
     // Text!
     else if (block.class === 'Text') {
@@ -67,7 +91,7 @@ let renderBlock = (block) => {
                         <p class="block-title">${block.title}</p>
                         <p class="dialog-text">${block.content}</p>
                     </div>
-                    <button class="close-button">×</button>
+                    <button class="close-button">Explore more</button>
                 </dialog>
             </li>
         `;
@@ -93,7 +117,7 @@ let renderBlock = (block) => {
                             </video>
                             <a href="${block.attachment.url}">See original ↗</a>
                         </div>
-                        <button class="close-button">×</button>
+                        <button class="close-button">Explore more</button>
                     </dialog>
                 </li>
             `;
@@ -141,7 +165,7 @@ let renderBlock = (block) => {
                         <p class="block-title">${block.title}</p>
                         <iframe src="${block.embed.url}"></iframe>
                     </div>
-                    <button class="close-button">×</button>
+                    <button class="close-button">Explore more</button>
                 </dialog>
             </li>
         `;
@@ -161,7 +185,7 @@ let renderBlock = (block) => {
 							<p class="block-title">${ block.generated_title }</p>
 							<img src="${ block.image.thumb.url }"></img>
 						</div>
-						<button class="close-button">×</button>
+						<button class="close-button">Explore more</button>
 				</dialog>
 			</li>
 			`
