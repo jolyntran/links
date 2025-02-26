@@ -136,16 +136,40 @@ let renderBlock = (block) => {
                     <dialog>
                         <div class="dialog-content">
                             <p class="block-title">${block.title}</p>
+                            <a href="${block.attachment.url}">See original ↗</a>
                             <video controls>
                                 <source src="${block.attachment.url}">
                             </video>
-                            <a href="${block.attachment.url}">See original ↗</a>
                         </div>
                         <button class="close-button">Explore more</button>
                     </dialog>
                 </li>
             `;
             channelBlocks.insertAdjacentHTML('beforeend', videoItem);
+        
+            let initInteraction = () => {
+                let linkBlocks = document.querySelectorAll('.block-video')
+                linkBlocks.forEach((block) => {
+                    let openButton = block.querySelector('button')
+                    let dialog = block.querySelector('dialog')
+                    let closeButton = dialog.querySelector('button')
+            
+                    openButton.onclick = () => {
+                        dialog.showModal()
+                    }
+            
+                    closeButton.onclick = () => {
+                        dialog.close()
+                    }
+            
+                    dialog.onclick = (event) => {
+                        if (event.target == dialog) {
+                            dialog.close()
+                        }
+                    }
+                })
+            }
+            initInteraction();
         } 
         // Uploaded audio! took off bc it displayed as null
         // else if (attachment.includes('audio')) {
