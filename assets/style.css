@@ -105,6 +105,10 @@ p {
     border-radius: calc(2 * var(--base-size));
 }
 
+.sonar-audio {
+    margin-top: calc(1 * var(--base-size));
+}
+
 #filter-buttons {
     padding: calc(0.25 * var(--base-size));
     font-family: var(--font-body);
