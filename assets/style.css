@@ -15,7 +15,6 @@
     max-height: fit-content;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 @media (min-width: 600px) {
@@ -307,27 +306,27 @@ dialog {
     overflow-wrap: break-word;
 }
 
-dialog video {
+.block-video dialog video {
     width: 100%;
     max-height: 50vh; 
     border-radius: calc(1 * var(--base-size));
 }
 
-dialog a {
+.block-video dialog a {
     font-size: calc(0.75 * var(--base-size));
     color: var(--color-accent);
     margin-bottom: calc(0.5 * var(--base-size));
     text-decoration: underline;
 }
 
-.block-media  {
+.block-media dialog iframe {
     width: 100%;
     height: 40vh; 
     max-height: 50vh; 
     border-radius: calc(1 * var(--base-size));
 }
 
-.linked-audio-block  {
+.linked-audio-block dialog img {
     width: 100%;
     height: auto;
     max-width: 100%;
@@ -335,6 +334,12 @@ dialog a {
     border-radius: calc(1 * var(--base-size));
 }
 
+dialog[open] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 /* SONAR EFFECT */
 .app {

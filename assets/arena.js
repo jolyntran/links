@@ -55,8 +55,8 @@ let renderBlock = (block) => {
         channelBlocks.insertAdjacentHTML('beforeend', imageItem);
 
         let initInteraction = () => {
-            let linkBlocks = document.querySelectorAll('.block-image')
-            linkBlocks.forEach((block) => {
+            let imageBlock = document.querySelectorAll('.block-image')
+            imageBlock.forEach((block) => {
                 let openButton = block.querySelector('button')
                 let dialog = block.querySelector('dialog')
                 let closeButton = dialog.querySelector('button')
@@ -98,8 +98,8 @@ let renderBlock = (block) => {
         channelBlocks.insertAdjacentHTML('beforeend', textItem);
     
         let initInteraction = () => {
-            let linkBlocks = document.querySelectorAll('.block-quotes')
-            linkBlocks.forEach((block) => {
+            let textBlocks = document.querySelectorAll('.block-quotes')
+            textBlocks.forEach((block) => {
                 let openButton = block.querySelector('button')
                 let dialog = block.querySelector('dialog')
                 let closeButton = dialog.querySelector('button')
@@ -148,8 +148,8 @@ let renderBlock = (block) => {
             channelBlocks.insertAdjacentHTML('beforeend', videoItem);
         
             let initInteraction = () => {
-                let linkBlocks = document.querySelectorAll('.block-video')
-                linkBlocks.forEach((block) => {
+                let videoBlocks = document.querySelectorAll('.block-video')
+                videoBlocks.forEach((block) => {
                     let openButton = block.querySelector('button')
                     let dialog = block.querySelector('dialog')
                     let closeButton = dialog.querySelector('button')
@@ -220,8 +220,8 @@ let renderBlock = (block) => {
         channelBlocks.insertAdjacentHTML('beforeend', mediaItem);
         
         let initInteraction = () => {
-            let linkBlocks = document.querySelectorAll('.block-media')
-            linkBlocks.forEach((block) => {
+            let mediaBlocks = document.querySelectorAll('.block-media')
+            mediaBlocks.forEach((block) => {
                 let openButton = block.querySelector('button')
                 let dialog = block.querySelector('dialog')
                 let closeButton = dialog.querySelector('button')
@@ -264,8 +264,8 @@ let renderBlock = (block) => {
 			channelBlocks.insertAdjacentHTML('beforeend', linkedAudioItem)
             
             let initInteraction = () => {
-                let linkBlocks = document.querySelectorAll('.linked-audio-block')
-                linkBlocks.forEach((block) => {
+                let linkedAudioBlocks = document.querySelectorAll('.linked-audio-block')
+                linkedAudioBlocks.forEach((block) => {
                     let openButton = block.querySelector('button')
                     let dialog = block.querySelector('dialog')
                     let closeButton = dialog.querySelector('button')
@@ -330,3 +330,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
