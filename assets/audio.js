@@ -15,3 +15,4 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio.currentTime = 0; 
         });
     });
+});

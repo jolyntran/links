@@ -103,7 +103,6 @@ p {
     cursor: pointer;
     text-shadow: none; 
     border-radius: calc(2 * var(--base-size));
-    margin-top: calc(5 * var(--base-size));
 }
 
 #filter-buttons {
