@@ -96,6 +96,30 @@ let renderBlock = (block) => {
             </li>
         `;
         channelBlocks.insertAdjacentHTML('beforeend', textItem);
+    
+        let initInteraction = () => {
+            let linkBlocks = document.querySelectorAll('.block-quotes')
+            linkBlocks.forEach((block) => {
+                let openButton = block.querySelector('button')
+                let dialog = block.querySelector('dialog')
+                let closeButton = dialog.querySelector('button')
+        
+                openButton.onclick = () => {
+                    dialog.showModal()
+                }
+        
+                closeButton.onclick = () => {
+                    dialog.close()
+                }
+        
+                dialog.onclick = (event) => {
+                    if (event.target == dialog) {
+                        dialog.close()
+                    }
+                }
+            })
+        }
+        initInteraction();
     } 
     
     // Uploaded (not linked) media…
